@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Spring MVC" type="spring-mvc">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../springlib" />
+      <root url="jar://$USER_HOME$/Desktop/com.springsource.org.apache.commons.fileupload-1.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/com.springsource.org.apache.commons.io-1.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../springlib" recursive="false" />
+  </library>
+</component>
