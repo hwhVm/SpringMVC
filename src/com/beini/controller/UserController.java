@@ -5,6 +5,7 @@ import com.beini.bean.User;
 import com.beini.constants.Constant;
 import com.beini.service.UserService;
 import com.beini.utils.BLog;
+import com.beini.utils.PageTableForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,16 @@ public class UserController {
      * @param user
      * @return
      */
+    /**
+     * 分页
+     */
+    @RequestMapping("list")
+    public String queryUserInfo(Model model, PageTableForm pageTableForm) {
+        pageTableForm=userService.queryUserInfo(pageTableForm);
+        model.addAttribute("pageTableForm", pageTableForm);
+        return "user_list";
+    }
+
     @RequestMapping(Constant.ADD_USER)
     public String addUser(User user) {
 

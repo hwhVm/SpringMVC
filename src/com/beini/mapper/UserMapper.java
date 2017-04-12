@@ -27,4 +27,9 @@ public interface UserMapper {
     @Select("select id id,name name,age age from User where id=#{id}")
     User getUser(int id);
 
+    @Select("select * from  User limit #{start} ,  #{num} ")
+    List<User> queryUserInfo(@Param("start")int start,@Param("num")int num);
+
+    @Select("select count(*) from User")
+    int getCount();
 }

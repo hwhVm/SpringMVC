@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>$Title$</title>
+    <meta http-equiv="ex" content="60">
     <%--<style type="text/css">--%>
     <%--#main {--%>
     <%--margin: 0 auto;--%>

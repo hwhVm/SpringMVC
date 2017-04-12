@@ -2,6 +2,7 @@ package com.beini.service;
 
 
 import com.beini.bean.User;
+import com.beini.utils.PageTableForm;
 
 import java.util.List;
 
@@ -23,5 +24,7 @@ public interface UserService {
 
     int deleteUser(int id);
 
+    PageTableForm queryUserInfo(PageTableForm pageTableForm);//分页
 
+    int getCount();//分页得到的数量
 }
