@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.context.request.async.WebAsyncTask;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 /**
@@ -30,16 +32,22 @@ public class UserController {
 
     /**
      * 同步操作
-     *
-     * @param user
-     * @return
      */
+    //对于ModelAndView构造函数可以指定返回页面的名称，也可以通过setViewName方法来设置所需要跳转的页面；
+    @RequestMapping(value="/index1",method=RequestMethod.GET)
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView("/user/index");
+//        modelAndView.setViewName("/user/index");
+        modelAndView.addObject("name", "xxx");
+        return modelAndView;
+    }
+
     /**
      * 分页
      */
     @RequestMapping("list")
     public String queryUserInfo(Model model, PageTableForm pageTableForm) {
-        pageTableForm=userService.queryUserInfo(pageTableForm);
+        pageTableForm = userService.queryUserInfo(pageTableForm);
         model.addAttribute("pageTableForm", pageTableForm);
         return "user_list";
     }
@@ -69,6 +77,33 @@ public class UserController {
         }
     }
 
+    /**
+     * 使用重定向的方式，改变浏览器的地址栏，防止表单因为刷新重复提交。
+     *
+     * @param user
+     * @param model
+     * @return
+     */
+    @RequestMapping("login")
+    public String login(@RequestParam Map<String, String> user, RedirectAttributes model) {
+        System.out.println("用户提交了一次表单");
+        String username;
+        if (user.get("name").isEmpty()) {
+            username = "Tom";
+        } else {
+            username = user.get("name");
+        }
+        model.addFlashAttribute("msg", username);
+//      return "home";//此方式跳转，页面刷新会重复提交表单
+        return "redirect:toHome";
+    }
+
+    @RequestMapping("toHome")
+    public String home(@ModelAttribute("msg") String msg, Model model) {
+        System.out.println("拿到重定向得到的参数msg:" + msg);
+        model.addAttribute("msg", msg);
+        return "home";
+    }
 
     /**
      * 异步操作

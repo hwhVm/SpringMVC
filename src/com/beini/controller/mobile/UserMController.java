@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,7 +61,7 @@ public class UserMController {
     public void getUserByPage(@RequestBody PageRequest pageRequest,
                               HttpServletResponse response, PrintWriter out) {
         PageTableForm pageTableForm = new PageTableForm();
-        System.out.println(" == "+pageRequest.getStart()+"    =="+pageRequest.getNum());
+        System.out.println(" == " + pageRequest.getStart() + "    ==" + pageRequest.getNum());
         pageTableForm.setCurrentPage(pageRequest.getStart());
         pageTableForm.setPageSize(pageRequest.getNum());
 
@@ -71,4 +73,17 @@ public class UserMController {
         }
 
     }
+
+    /**
+     * 请求也可以使用通配符
+     * @return
+     */
+
+
+    @RequestMapping(value = "test_request_body" ,method = RequestMethod.GET)
+    public @ResponseBody String testRequestBody() {
+        System.out.println("    testRequestBody ");
+        return " 返回 response body";
+    }
+
 }
