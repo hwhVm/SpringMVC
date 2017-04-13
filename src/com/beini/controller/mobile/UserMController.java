@@ -78,8 +78,6 @@ public class UserMController {
      * 请求也可以使用通配符
      * @return
      */
-
-
     @RequestMapping(value = "test_request_body" ,method = RequestMethod.GET)
     public @ResponseBody String testRequestBody() {
         System.out.println("    testRequestBody ");
