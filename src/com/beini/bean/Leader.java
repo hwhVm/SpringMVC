@@ -33,4 +33,10 @@ public class Leader implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public Leader(String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 }

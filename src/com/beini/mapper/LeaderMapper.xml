@@ -27,7 +27,7 @@
         insert into leader (name,age)
         values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.name},#{item.age}
+            (#{item.name},#{item.age})
         </foreach>
     </insert>
 </mapper>

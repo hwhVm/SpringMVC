@@ -1,6 +1,7 @@
 package com.beini.service;
 
 import com.beini.bean.Leader;
+import com.beini.bean.User;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface LeaderService {
     Leader getLeaderById(int userId);
 
     List<Leader> queryAll();
+
+    void inserUsers(List<Leader> users);
 }

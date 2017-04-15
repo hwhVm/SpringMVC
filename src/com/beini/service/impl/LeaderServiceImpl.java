@@ -1,6 +1,7 @@
 package com.beini.service.impl;
 
 import com.beini.bean.Leader;
+import com.beini.bean.User;
 import com.beini.mapper.LeaderMapper;
 import com.beini.mapper.UserMapper;
 import com.beini.service.LeaderService;
@@ -26,5 +27,10 @@ public class LeaderServiceImpl implements LeaderService {
     @Override
     public List<Leader> queryAll() {
         return leaderMapper.queryAll();
+    }
+
+    @Override
+    public void inserUsers(List<Leader> leaders) {
+        leaderMapper.insertsLeader(leaders);
     }
 }
