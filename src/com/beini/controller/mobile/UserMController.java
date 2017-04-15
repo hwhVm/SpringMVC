@@ -48,7 +48,7 @@ public class UserMController {
         userService.insertUser(user);
 
         BaseResponseJson responseJson = new BaseResponseJson();
-
+        responseJson.setReturnCode(0);
 
         response.setContentType("text/htm;charset=utf-8");
         response.setHeader("pragma", " no-cache");

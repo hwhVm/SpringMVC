@@ -108,5 +108,7 @@
     <input type="submit" value="submit"/>
 </form>
 </p>
+<p/>
+<a href="queryAllLeader">xml文件配置SpringMVC myBatis</a>
 </body>
 </html>

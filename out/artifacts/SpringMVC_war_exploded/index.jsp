@@ -101,5 +101,14 @@
     <input type="submit" value="Submit"/>
 </form>
 <p>
+<p>
+<form id="form1" action="login" method="post">
+    账号:<input type="text" name="name"/></br>
+    密码:<input type="password" name="password"/></br>
+    <input type="submit" value="submit"/>
+</form>
+</p>
+<p/>
+<a href="queryAllLeader">xml文件配置SpringMVC myBatis</a>
 </body>
 </html>
