@@ -1,35 +1,30 @@
-package com.beini.test;
+package com.beini.test.javaee;
 
-import com.beini.bean.Leader;
+import com.beini.bean.Person;
 import com.beini.mapper.LeaderMapper;
-import org.junit.*;
+import com.beini.mapper.PersonMapper;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by beini on 2017/4/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/config/spring-common.xml")
-public class LeaderTest {
+public class PersonMapperTest {
     @Autowired
-    private LeaderMapper userMapper;
-
+    private PersonMapper personMapper;
 
     @org.junit.Test
-    public void testFindAll() {
-        List<Leader> leaders = new ArrayList<>();
-        leaders.add(new Leader("hwh1", 221));
-        leaders.add(new Leader("hwh2", 222));
-        leaders.add(new Leader("hwh3", 223));
-        leaders.add(new Leader("hwh4", 224));
+    public void test() {
         System.out.println("       start");
-        userMapper.insertsLeader(leaders);
+        Person person = personMapper.queryOnePerson(1);
+        System.out.println("     " + (person == null));
+        if (person != null) {
+            System.out.println("    " + person.getName() + "   " + person.getOrderList().size());
+        }
         System.out.println("       end");
     }
 

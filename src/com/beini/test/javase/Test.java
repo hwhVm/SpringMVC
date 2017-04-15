@@ -1,14 +1,7 @@
-package com.beini.test;
+package com.beini.test.javase;
 
 
-import com.beini.bean.User;
-import com.beini.service.UserService;
-import com.beini.service.impl.UserServiceImpl;
-import com.beini.utils.BLog;
-import com.beini.utils.PageTableForm;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.DigestUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -16,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
