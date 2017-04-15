@@ -29,6 +29,7 @@ public class UserMController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping("queryAllM")
     public void queryAllM(HttpServletRequest request, HttpServletResponse response, PrintWriter printWriter) {
         printWriter.write("queryAll ");
@@ -76,10 +77,12 @@ public class UserMController {
 
     /**
      * 请求也可以使用通配符
+     *
      * @return
      */
-    @RequestMapping(value = "test_request_body" ,method = RequestMethod.GET)
-    public @ResponseBody String testRequestBody() {
+    @RequestMapping(value = "test_request_body", method = RequestMethod.GET)
+    public @ResponseBody
+    String testRequestBody() {
         System.out.println("    testRequestBody ");
         return " 返回 response body";
     }

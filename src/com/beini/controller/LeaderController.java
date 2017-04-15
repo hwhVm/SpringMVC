@@ -18,6 +18,14 @@ public class LeaderController {
 
     @Autowired
     private LeaderService leaderService;
+    /**
+     * 批量插入
+     */
+    @RequestMapping("insertUsers")
+    public void insertUsers() {
+
+    }
+
 
     @RequestMapping("queryAllLeader")
     public void queryAllLeader() {

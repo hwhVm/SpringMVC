@@ -11,4 +11,6 @@ public interface LeaderMapper {
     Leader getLeaderById(int userId);
 
     List<Leader> queryAll();
+
+    void insertsLeader(List<Leader> leaders);
 }

@@ -23,5 +23,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Spring MVC" level="project" />
+    <orderEntry type="library" name="aopalliance-1.0" level="project" />
   </component>
 </module>
