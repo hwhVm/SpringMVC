@@ -1,0 +1,17 @@
+1.建表
+DROP TABLE IF EXISTS `pserson`;
+CREATE TABLE `person` (
+  `p_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`p_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `price` varchar(100) DEFAULT NULL,
+  `persionId` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+1 http://blog.csdn.net/qq_33689414/article/details/52452454?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io

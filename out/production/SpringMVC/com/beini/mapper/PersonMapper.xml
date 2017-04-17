@@ -23,5 +23,13 @@
         select user_id id,user_name userName,user_age age from t_user
     </select>
 
+    <!--查询用户，但涉及到订单-->
+    <select id="finadAllaboutOrders" resultType="Person" resultMap="personreSultMap">
+        select p.*,o.* from person  p,orders o where o.persionId=p.p_id;
+    </select>
+
+    <select id="queryForList" resultMap="personreSultMap">
+        select   p.p_id,  p.name, o.id,   o.price,  FROM  person p  LEFT JOIN   orders o   ON  o.persionId=p.p_id
+    </select>
 
 </mapper>

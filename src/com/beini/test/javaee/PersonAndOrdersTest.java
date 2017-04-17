@@ -48,9 +48,23 @@ public class PersonAndOrdersTest {
         if (orders != null) {
             System.out.println("  ----------->" + orders.getPrice());
             if (orders.getPerson() != null) {
-                System.out.println("     "+orders.getPerson().getName());
+                System.out.println("     " + orders.getPerson().getName());
             }
         }
         System.out.println("    -------->    end");
+    }
+
+
+    @Test
+    public void testPersonNoIdQueryAll() {
+        List<Person> personList = personMapper.queryForList();
+        if (personList != null) {
+            System.out.println("   personList.size()== " + personList.size());
+
+            for (Person person : personList) {
+                System.out.println("           person===" + person.getName() + "   " + person.getOrderList().size());
+            }
+
+        }
     }
 }

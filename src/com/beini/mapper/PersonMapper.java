@@ -12,4 +12,8 @@ public interface PersonMapper {
     Person selectPersonFetchOrder(@Param("id") int id);
 
     List<Person> findAll();
+
+    List<Person> finadAllaboutOrders();
+
+    List<Person> queryForList();
 }

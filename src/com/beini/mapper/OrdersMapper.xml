@@ -9,7 +9,8 @@
         <id column="o_id" property="id"/>
 
         <result column="price" property="price"/>
-
+        <!-- association:用户映射关联查询单个对象的信息 -->
+        <!-- property:要将关联查询的用户信息映射到person中哪个属性 -->
         <association property="person" javaType="com.beini.bean.Person">
             <id column="p_id" property="id"/>
             <result column="name" property="name"/>
