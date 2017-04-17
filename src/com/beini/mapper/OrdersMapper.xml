@@ -18,7 +18,7 @@
     </resultMap>
 
     <select id="selectOrdersFetchPerson" resultMap="OrdersResultMap">
-        select p.*,o.* from person p,orders o where o.pid=p.p_id and o.o_id=#{id}
+        select p.*,o.* from person p,orders o where o.persionId=p.p_id and o.id=#{id}
     </select>
 
 </mapper>

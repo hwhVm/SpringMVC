@@ -13,7 +13,7 @@
             <result column="price" property="price"/>
         </collection>
     </resultMap>
-
+    <!--一查多-->
     <select id="selectPersonFetchOrder" parameterType="int" resultMap="personreSultMap">
         select p.*,o.* from person p,orders o where o.persionId=p.p_id and p.p_id=#{id}
     </select>
@@ -22,7 +22,6 @@
     <select id="findAll" resultType="Person">
         select user_id id,user_name userName,user_age age from t_user
     </select>
-
 
 
 </mapper>
