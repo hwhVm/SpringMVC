@@ -39,10 +39,15 @@
     </select>
 
     <select id="queryStudentByIdByOrder" resultMap="studentsMap" resultType="Students">
-     SELECT * FROM students s,classbean c WHERE s.class_id=c.class_id AND age IN
-        <foreach collection="privIds" item="item" index="index"   open="(" separator="," close=")">
+        SELECT * FROM students s,classbean c WHERE s.class_id=c.class_id AND age IN
+        <foreach collection="privIds" item="item" index="index" open="(" separator="," close=")">
             #{item}
         </foreach>
         ORDER BY s.class_id DESC , s.age ;
-   </select>
+    </select>
+
+    <insert id="">
+
+
+    </insert>
 </mapper>

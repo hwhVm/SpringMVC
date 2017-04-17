@@ -23,16 +23,27 @@ public class LeaderTest {
 
     @org.junit.Test
     public void testFindAll() {
-        List<Leader> leaders = new ArrayList<>();
-        leaders.add(new Leader("hwh1", 221));
-        leaders.add(new Leader("hwh2", 222));
-        leaders.add(new Leader("hwh3", 223));
-        leaders.add(new Leader("hwh4", 224));
-        System.out.println("       start");
-        leaderMapper.insertsLeader(leaders);
-        System.out.println("       end");
-        List<Leader> leaderList = leaderMapper.queryAll();
-        System.out.println("      leaderList.size()==" + leaderList.size());
+//        List<Leader> leaders = new ArrayList<>();
+//        leaders.add(new Leader("hwh1", 221));
+//        leaders.add(new Leader("hwh2", 222));
+//        leaders.add(new Leader("hwh3", 223));
+//        leaders.add(new Leader("hwh4", 224));
+//        System.out.println("       start");
+//        leaderMapper.insertsLeader(leaders);
+//        System.out.println("       end");
+//        List<Leader> leaderList = leaderMapper.queryAll();
+//        System.out.println("      leaderList.size()==" + leaderList.size());
     }
 
-}
+    @org.junit.Test
+    public void insertLeaderTest() {
+        Leader leader = new Leader();
+        leader.setId(48);
+        leader.setAge(11);
+        leader.setName("lllllll");
+//        leaderMapper.insertLeader(leader);
+//        leaderMapper.deleteLeader(49);
+        leaderMapper.updateLeader(leader);
+    }
+
+    }

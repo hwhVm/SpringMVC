@@ -30,8 +30,22 @@
     <!--
     resultType代表的是List中的元素类型
     -->
-    <select id="queryAll" resultType="Leader" >
+    <select id="queryAll" resultType="Leader">
         select * from Leader
     </select>
+    <!--insert
+    useGeneratedKeys=”true”自动生成主键的字段
 
+    -->
+    <insert id="insertLeader" useGeneratedKeys="true" keyProperty="id"  parameterType="Leader">
+        insert into Leader (name,age) values (#{name},#{age})
+    </insert>
+
+    <update id="updateLeader" parameterType="Leader">
+        update Leader set   name = #{name},  age = #{age} where id = #{id}
+    </update>
+
+    <delete id="deleteLeader">
+        delete from Leader where id = #{id}
+    </delete>
 </mapper>
