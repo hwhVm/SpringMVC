@@ -1,25 +1,21 @@
 package com.beini.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by beini on 2017/4/15.
  */
-public class Person {
-    private int id;
+public class Person implements Serializable {
+    private Long id;
     private String name;
     private List<Orders> orderList;
 
-    public Person(String name, List<Orders> orderList) {
-        this.name = name;
-        this.orderList = orderList;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,4 +34,6 @@ public class Person {
     public void setOrderList(List<Orders> orderList) {
         this.orderList = orderList;
     }
+
+
 }

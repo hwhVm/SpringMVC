@@ -9,7 +9,7 @@ import java.util.List;
  * Created by beini on 2017/4/15.
  */
 public interface PersonMapper {
-    Person selectPersonFetchOrder();
+    Person selectPersonFetchOrder(@Param("id") int id);
 
-    List<Person> queryOnePerson(int id);
+    List<Person> findAll();
 }

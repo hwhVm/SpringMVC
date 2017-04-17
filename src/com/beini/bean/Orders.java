@@ -1,24 +1,20 @@
 package com.beini.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by beini on 2017/4/15.
  */
-public class Orders {
-    private int id;
+public class Orders implements Serializable {
+    private Long id;
     private double price;
     private Person person;
 
-    public Orders(double price, Person person) {
-        this.price = price;
-        this.person = person;
-    }
-
-    public int getId() {
-
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

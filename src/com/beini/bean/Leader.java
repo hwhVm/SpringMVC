@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Leader implements Serializable {
     private Integer id;
     private String name;
-    private int age;
+    private Integer age;
 
     public Integer getId() {
         return id;
@@ -35,6 +35,11 @@ public class Leader implements Serializable {
     }
 
     public Leader(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Leader(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;

@@ -18,7 +18,7 @@ import java.util.List;
 @ContextConfiguration("/config/spring-common.xml")
 public class LeaderTest {
     @Autowired
-    private LeaderMapper userMapper;
+    private LeaderMapper leaderMapper;
 
 
     @org.junit.Test
@@ -29,8 +29,10 @@ public class LeaderTest {
         leaders.add(new Leader("hwh3", 223));
         leaders.add(new Leader("hwh4", 224));
         System.out.println("       start");
-        userMapper.insertsLeader(leaders);
+        leaderMapper.insertsLeader(leaders);
         System.out.println("       end");
+        List<Leader> leaderList = leaderMapper.queryAll();
+        System.out.println("      leaderList.size()==" + leaderList.size());
     }
 
 }

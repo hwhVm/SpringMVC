@@ -5,22 +5,24 @@
 
 <mapper namespace="com.beini.mapper.PersonMapper">
 
-    <resultMap type="com.beini.bean.Person" id="personreSultMap">
+    <resultMap type="Person" id="personreSultMap">
         <id column="p_id" property="id"/>
         <result column="name" property="name"/>
-        <collection property="orderList" ofType="com.beini.bean.Orders" column="pid">
-            <id column="o_id" property="id"/>
+        <collection property="orderList" ofType="com.beini.bean.Orders" column="persionId">
+            <id column="id" property="id"/>
             <result column="price" property="price"/>
         </collection>
-
     </resultMap>
 
     <select id="selectPersonFetchOrder" parameterType="int" resultMap="personreSultMap">
         select p.*,o.* from person p,orders o where o.persionId=p.p_id and p.p_id=#{id}
     </select>
 
-    <!--查询用户，但是不涉及到订单 -->
-    <select id="queryOnePerson" parameterType="int" resultMap="Person">
-        SELECT *   FROM Person    WHERE p_id = #{id}
+    <!--查询用户，但是不涉及到订单-->
+    <select id="findAll" resultType="Person">
+        select user_id id,user_name userName,user_age age from t_user
     </select>
+
+
+
 </mapper>
