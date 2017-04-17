@@ -1,17 +1,76 @@
-1.建表
-DROP TABLE IF EXISTS `pserson`;
-CREATE TABLE `person` (
-  `p_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE `orders` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `price` varchar(100) DEFAULT NULL,
-  `persionId` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
 1 http://blog.csdn.net/qq_33689414/article/details/52452454?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+一对多与多对一 :
+
+建一个班级表class,创建一个学生表students,具体看下面语句
+
+create table class(
+    class_id int primary key,
+    grade varchar(30) unique,
+    count int
+);
+
+insert into class values (1,'first grade',4);
+insert into class values (2,'second grade',3);
+insert into class values (3,'third grade',4);
+insert into class values (4,'fourth grade',3);
+insert into class values (5,'fifth grade',4);
+insert into class values (6,'sixth grade',3);
+
+
+create table students(
+    stu_id int primary key,
+    name varchar(30),
+    age int,
+    class_id int,
+    foreign key(class_id) references class (class_id)
+);
+
+insert into students values(101,'tom',6,1);
+insert into students values(102,'tim',7,1);
+insert into students values(103,'tam',5,1);
+insert into students values(104,'tem',6,1);
+
+
+insert into students values(201,'blue',7,2);
+insert into students values(202,'lusi',8,2);
+insert into students values(203,'keou',6,2);
+
+insert into students values(301,'lisi',9,3);
+insert into students values(302,'lusi',7,3);
+insert into students values(303,'lucy',7,3);
+insert into students values(304,'kiki',8,3);
+
+
+insert into students values(401,'mumu',10,4);
+insert into students values(402,'bubu',8,4);
+insert into students values(403,'mimi',9,4);
+
+insert into students values(501,'koko',10,5);
+insert into students values(502,'pop',12,5);
+insert into students values(503,'bob',10,5);
+insert into students values(504,'coco',11,5);
+
+insert into students values(601,'ailis',13,6);
+insert into students values(602,'reti',11,6);
+insert into students values(603,'pipo',12,6);
+
+//查询一年级的学生信息
+select *from students,class where students.class_id = class.class_id and class.class_id = 1;
+
+//查询tom的信息
+select *from students,class where students.class_id = class.class_id and students.name = 'tom';
+
+//查询tom和mimi的年龄，上几年级,班上多少人
+select s.name,s.age,c.grade,c.count from students s,class c where s.class_id = c.class_id and (s.name = 'tom' or s.name = 'mimi');
+
+//查询年龄8岁的学生信息
+select * from students s,class c where s.class_id = c.class_id and age=8;
+
+//查询__m的学生
+select * from students s,class c where s.class_id = c.class_id and s.name like '__m';
+
+//查询%m%的学生
+select * from students s,class c where s.class_id = c.class_id and s.name like '%m%';
+
+//查询6,8,10的学生,按class_id降序排列,年龄升序排列
+select *from students s,class c where s.class_id=c.class_id and age in(6,8,10) order by s.class_id desc, s.age ;
