@@ -20,6 +20,10 @@ public class LeaderTest {
     @Autowired
     private LeaderMapper leaderMapper;
 
+    @Test
+    public void queryAllTest() {
+        leaderMapper.queryAll();
+    }
 
     @org.junit.Test
     public void testFindAll() {
