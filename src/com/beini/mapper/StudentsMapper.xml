@@ -4,6 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beini.mapper.StudentsMapper">
 
+    <!-- mybatis缓存 -->
+    <cache eviction="LRU" flushInterval="600000" size="1024" readOnly="false" />
+
     <resultMap type="com.beini.bean.Students" id="studentsMap">
         <id column="stu_id" property="stu_id"/>
         <result column="name" property="name"/>
@@ -50,5 +53,7 @@
         INSERT INTO Students VALUES (#{stu_id},#{name},#{age},#{class_id});
     </insert>
 
-
+  <delete id="deleteStudent">
+    delete from Students where stu_id = #{id}
+  </delete>
 </mapper>
