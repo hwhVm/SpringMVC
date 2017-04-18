@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beini.mapper.StudentsMapper">
+
+    <resultMap type="com.beini.bean.Students" id="studentsMap">
+        <id column="stu_id" property="stu_id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+
+        <!-- association:用户映射关联查询单个对象的信息 -->
+        <!-- property:要将关联查询的用户信息映射到person中哪个属性 -->
+        <association property="classBean" javaType="com.beini.bean.ClassBean">
+            <id column="class_id" property="class_id"/>
+            <result column="grade" property="grade"/>
+            <result column="count" property="count"/>
+        </association>
+
+    </resultMap>
+    <select id="queryStudentByName" resultMap="studentsMap" resultType="Students">
+    SELECT * FROM students,classbean WHERE students.class_id = classbean.class_id AND students.name = #{studentName};
+   </select>
+
+    <select id="queryTwoStudneByName" resultMap="studentsMap" resultType="Students">
+    SELECT s.name,s.age,c.grade,c.count FROM students s,classbean c WHERE s.class_id = c.class_id AND (s.name =#{oneName}  OR s.name =#{twoName});
+    </select>
+
+    <select id="queryStudentByAge" resultMap="studentsMap" resultType="Students">
+    SELECT  * FROM students s,classbean c WHERE s.class_id = c.class_id AND s.age=#{age }
+    </select>
+
+    <select id="queryStudentByIfLastInner" resultMap="studentsMap" resultType="Students">
+    SELECT  * FROM students s,classbean c WHERE s.class_id = c.class_id AND s.name LIKE  CONCAT('%',#{innerP})
+    </select>
+
+    <select id="queryStudentByIfLastVague" resultMap="studentsMap" resultType="Students">
+    SELECT  * FROM    students s,classbean c WHERE s.class_id = c.class_id AND   s.name LIKE  CONCAT('%',#{vague},'%')
+    </select>
+
+    <select id="queryStudentByIdByOrder" resultMap="studentsMap" resultType="Students">
+        SELECT * FROM students s,classbean c WHERE s.class_id=c.class_id AND age IN
+        <foreach collection="privIds" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY s.class_id DESC , s.age ;
+    </select>
+
+    <insert id="insertStuden" useGeneratedKeys="true" parameterType="Students" keyProperty="stu_id" >
+        INSERT INTO Students VALUES (#{stu_id},#{name},#{age},#{class_id});
+    </insert>
+
+
+</mapper>
