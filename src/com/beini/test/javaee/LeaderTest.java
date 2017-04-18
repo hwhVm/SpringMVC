@@ -46,4 +46,41 @@ public class LeaderTest {
         leaderMapper.updateLeader(leader);
     }
 
+    /**
+     * 批量删除
+     */
+    @Test
+    public void deletesTest() {
+        List<Integer> integers = new ArrayList<>();
+        integers.add(23);
+        integers.add(24);
+        leaderMapper.deletesMethod2(integers);
     }
+
+    /**
+     * 批量更新
+     */
+    @Test
+    public void updatesMethod1() {
+        List<Leader> leaders = new ArrayList<>();
+        Leader leader = new Leader();
+        leader.setId(25);
+        leader.setName("updates1");
+        leader.setAge(1);
+        leaders.add(leader);
+
+        Leader leader1 = new Leader();
+        leader1.setId(26);
+        leader1.setName("updates2");
+        leader1.setAge(2);
+        leaders.add(leader1);
+
+        Leader leader2 = new Leader();
+        leader2.setId(27);
+        leader2.setName("updates3");
+        leader2.setAge(3);
+        leaders.add(leader2);
+
+        leaderMapper.updatesMethod1(leaders);
+    }
+}

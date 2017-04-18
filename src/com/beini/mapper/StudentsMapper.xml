@@ -46,8 +46,9 @@
         ORDER BY s.class_id DESC , s.age ;
     </select>
 
-    <insert id="">
-
-
+    <insert id="insertStuden" useGeneratedKeys="true" parameterType="Students" keyProperty="stu_id" >
+        INSERT INTO Students VALUES (#{stu_id},#{name},#{age},#{class_id});
     </insert>
+
+
 </mapper>

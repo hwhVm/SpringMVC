@@ -22,7 +22,7 @@
         </selectKey>
         insert into leader (name,age)
         values
-        <foreach collection="list" item="item" index="index" separator=",">
+        <foreach collection="leaders" item="item" index="index" separator=",">
             (#{item.name},#{item.age})
         </foreach>
     </insert>
@@ -30,8 +30,45 @@
     <!--
     resultType代表的是List中的元素类型
     -->
-    <select id="queryAll" resultType="Leader" >
+    <select id="queryAll" resultType="Leader">
         select * from Leader
     </select>
+    <!--insert
+    useGeneratedKeys=”true”自动生成主键的字段
+
+    -->
+    <insert id="insertLeader" useGeneratedKeys="true" keyProperty="id" parameterType="Leader">
+        insert into Leader (name,age) values (#{name},#{age})
+    </insert>
+
+    <update id="updateLeader" parameterType="Leader">
+        update Leader set   name = #{name},  age = #{age} where id = #{id}
+    </update>
+
+    <delete id="deleteLeader">
+        delete from Leader where id = #{id}
+    </delete>
+
+
+    <delete id="deletesMethod1">
+        delete from Leader where id in (
+        <foreach collection="ids" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+
+    <delete id="deletesMethod2">
+        delete from Leader where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!--批量更新-->
+    <update id="updatesMethod1">
+        <foreach collection="updatesLeader" item="item" index="index" open="" close="" separator=";">
+            update Leader set name = #{item.name},age = #{item.age} where id = ${item.id}
+        </foreach>
+    </update>
 
 </mapper>

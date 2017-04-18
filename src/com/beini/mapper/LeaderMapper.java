@@ -28,4 +28,13 @@ public interface LeaderMapper {
 
     //更新对象
     void updateLeader(Leader leader);
+
+    //批量删除  方法1
+    void deletesMethod1(@Param("ids") List<Integer> ids);
+
+    //批量删除  方法2
+    void deletesMethod2(@Param("ids") List<Integer> ids);
+
+    //批量更新
+    void updatesMethod1(@Param("updatesLeader") List<Leader> leaders);
 }

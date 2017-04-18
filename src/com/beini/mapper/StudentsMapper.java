@@ -9,6 +9,9 @@ import java.util.List;
  * Created by beini on 2017/4/15.
  */
 public interface StudentsMapper {
+    //插入一个学生信息
+    void insertStuden(Students students);
+
     //查询某个学生的信息
     List<Students> queryStudentByName(@Param("studentName") String studentName);
 

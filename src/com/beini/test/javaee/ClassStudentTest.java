@@ -69,4 +69,14 @@ public class ClassStudentTest {
             System.out.println(" ---->   " + students1.getName());
         }
     }
+
+    @Test
+    public void insertStudenTest() {
+        Students students = new Students();
+        students.setStu_id(1);
+        students.setAge(26);
+        students.setName("beini");
+        students.setClass_id(3);
+        studentsMapper.insertStuden(students);
+    }
 }

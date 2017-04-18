@@ -9,6 +9,9 @@ public class Students implements Serializable {
     private Integer stu_id;
     private String name;
     private Integer age;
+    private Integer class_id;
+
+
     private ClassBean classBean;
 
 
@@ -43,5 +46,11 @@ public class Students implements Serializable {
     public void setAge(Integer age) {
         this.age = age;
     }
+    public Integer getClass_id() {
+        return class_id;
+    }
 
+    public void setClass_id(Integer class_id) {
+        this.class_id = class_id;
+    }
 }
