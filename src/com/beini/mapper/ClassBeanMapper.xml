@@ -19,5 +19,4 @@
     <select id="queryClassById" resultType="ClassBean" resultMap="classMap">
         SELECT * FROM students,classbean WHERE students.class_id = classbean.class_id AND classbean.class_id = #{id};
     </select>
-
 </mapper>

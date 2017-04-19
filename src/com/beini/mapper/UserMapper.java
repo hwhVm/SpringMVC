@@ -1,6 +1,7 @@
 package com.beini.mapper;
 
 import com.beini.bean.User;
+import com.beini.controller.sql.UserSql;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -28,8 +29,18 @@ public interface UserMapper {
     User getUser(int id);
 
     @Select("select * from  User limit #{start} ,  #{num} ")
-    List<User> queryUserInfo(@Param("start")int start,@Param("num")int num);
+    List<User> queryUserInfo(@Param("start") int start, @Param("num") int num);
 
     @Select("select count(*) from User")
     int getCount();
+
+    /**
+     * SQL构造器实现 http://blog.csdn.net/u013214151/article/details/52211614
+     */
+    @SelectProvider(type = UserSql.class, method = "findAllSql")
+    List<User> findAll();
+
+    @SelectProvider(type = UserSql.class, method = "  findUserByIdSql")
+    User findUserById(int id);
+
 }
