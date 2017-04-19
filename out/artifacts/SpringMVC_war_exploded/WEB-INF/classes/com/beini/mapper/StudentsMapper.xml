@@ -5,7 +5,7 @@
 <mapper namespace="com.beini.mapper.StudentsMapper">
 
     <!-- mybatis缓存 -->
-    <cache eviction="LRU" flushInterval="600000" size="1024" readOnly="false" />
+    <!--<cache eviction="LRU" flushInterval="600000" size="1024" readOnly="false" />-->
 
     <resultMap type="com.beini.bean.Students" id="studentsMap">
         <id column="stu_id" property="stu_id"/>

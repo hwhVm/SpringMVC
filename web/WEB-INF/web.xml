@@ -26,6 +26,7 @@
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
+        <!-- 所有的的请求，都会被DispatcherServlet处理 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
@@ -43,6 +44,7 @@
         </init-param>
         <async-supported>true</async-supported>
     </filter>
+
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>

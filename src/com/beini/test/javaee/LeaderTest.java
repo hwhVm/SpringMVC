@@ -87,4 +87,9 @@ public class LeaderTest {
 
         leaderMapper.updatesMethod1(leaders);
     }
+
+    /**
+     * 自定义拦截器测试
+     */
+
 }

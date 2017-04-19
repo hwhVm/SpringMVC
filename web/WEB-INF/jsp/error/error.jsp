@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-error
+${message}
 </body>
 </html>

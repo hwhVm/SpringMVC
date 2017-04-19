@@ -113,7 +113,12 @@
 
 <p>
   <a href="testSimpleMappingException">SpringMVC中自带的简单异常处理器 SimpleMappingExceptionResolver</a>
-
 </p>
+
+<p>
+    <a href="http://localhost:8080/js/jquery-3.1.1.min.js">
+        静态资源的访问
+    </a>
+   </p>
 </body>
 </html>

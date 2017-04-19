@@ -1,6 +1,11 @@
 package com.beini.test.javase;
 
 
+import com.beini.controller.intercepto.CustomerInterceptor;
+import com.beini.utils.BLog;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +17,7 @@ import java.util.stream.Collectors;
  * java8 集合流式操作
  */
 public class StreamJava8Test {
+
     public static void main(String[] args) throws InterruptedException {
         List<User> usersList = new ArrayList<>();
         usersList.add(null);
@@ -21,8 +27,9 @@ public class StreamJava8Test {
         User user1 = new User();
         user1.setName("11");
         usersList.add(user1);
-        usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    "+ user2.getName()));
+        usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    " + user2.getName()));
 
+        BLog.d("     ------>StreamJava8Test");
     }
 
     /**
