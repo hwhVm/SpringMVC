@@ -110,5 +110,10 @@
 </p>
 <p/>
 <a href="queryAllLeader">xml文件配置SpringMVC myBatis</a>
+
+<p>
+  <a href="testSimpleMappingException">SpringMVC中自带的简单异常处理器 SimpleMappingExceptionResolver</a>
+
+</p>
 </body>
 </html>

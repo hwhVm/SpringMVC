@@ -1,13 +1,12 @@
 package com.beini.controller;
 
 import com.beini.bean.Leader;
-import com.beini.controller.exception.GlobaleException;
+import com.beini.controller.exception.CustomException;
 import com.beini.service.LeaderService;
 import com.beini.utils.BLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -33,11 +32,20 @@ public class LeaderController {
 
 
     @RequestMapping("queryAllLeader")
-    public void queryAllLeader() throws RuntimeException {
+    public void queryAllLeader() {
         BLog.d("  queryAllLeader    ");
         List<Leader> leaders = leaderService.queryAll();
         BLog.d("  leaders.size()===" + leaders.size());
-        throw new RuntimeException();
+
+
+    }
+
+    /**
+     * 测试SpringMVC异常处理
+     */
+    @RequestMapping("testSimpleMappingException")
+    public void testSimpleMappingException() throws CustomException {
+        throw new CustomException("leader  null");
     }
 
 
