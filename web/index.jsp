@@ -72,6 +72,9 @@
             form.submit();
         }
 
+        function chageCode(){
+            $('#codeImage').attr('src','getAuthCode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+        }
     </script>
 </head>
 <body>
@@ -120,5 +123,12 @@
         静态资源的访问
     </a>
    </p>
+
+<div class="form-group">
+    验证码：<input id="authCode" name="authCode" type="text"/>
+    <!--这里img标签的src属性的值为后台实现图片验证码方法的请求地址-->
+    <label><img type="image" src="getAuthCode" id="codeImage" onclick="chageCode()" title="图片看不清？点击重新得到验证码" style="cursor:pointer;"/></label>
+    <label><a onclick="chageCode()">换一张</a></label>
+</div>
 </body>
 </html>

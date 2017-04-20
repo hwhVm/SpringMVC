@@ -40,7 +40,7 @@ public interface UserMapper {
     @SelectProvider(type = UserSql.class, method = "findAllSql")
     List<User> findAll();
 
-    @SelectProvider(type = UserSql.class, method = "  findUserByIdSql")
+    @SelectProvider(type = UserSql.class, method = "findUserByIdSql")
     User findUserById(int id);
 
 }
