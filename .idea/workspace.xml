@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5689c234-b8ce-4bdd-880e-75a50062e272" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/WEB-INF/classes/com/beini/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/WEB-INF/classes/com/beini/mapper/UserMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpringMVC/com/beini/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/out/production/SpringMVC/com/beini/mapper/UserMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/WEB-INF/classes/com/beini/mapper/ClassBeanMapper.xml" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/WEB-INF/classes/com/beini/mapper/ClassBeanMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpringMVC/com/beini/mapper/ClassBeanMapper.xml" afterPath="$PROJECT_DIR$/out/production/SpringMVC/com/beini/mapper/ClassBeanMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beini/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/com/beini/mapper/UserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,8 +70,8 @@
       <file leaf-file-name="AuthCodeController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="103" column="58" lean-forward="true" selection-start-line="103" selection-start-column="58" selection-end-line="103" selection-end-column="58" />
+            <state relative-caret-position="250">
+              <caret line="106" column="26" lean-forward="false" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1191,7 +1183,7 @@
       <workItem from="1492566829903" duration="6696000" />
       <workItem from="1492581613305" duration="45000" />
       <workItem from="1492581685083" duration="8957000" />
-      <workItem from="1492669199192" duration="10967000" />
+      <workItem from="1492669199192" duration="11311000" />
     </task>
     <task id="LOCAL-00001" summary="添加多文件接收支持&#10;添加一个普通测试get请求接口">
       <created>1491902084633</created>
@@ -1277,7 +1269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492588673054</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="添加验证码">
+      <created>1492685675167</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1492685675167</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1313,7 +1312,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156570000" />
+    <option name="totallyTimeSpent" value="156914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1347,7 +1346,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1516793" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40195015" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32502708" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17110874" sideWeight="0.4878837" order="0" side_tool="false" content_ui="combo" />
@@ -1416,7 +1415,8 @@
     <MESSAGE value="添加Spring异常统一处理" />
     <MESSAGE value="加入spring拦截器" />
     <MESSAGE value="注解的方式实现SQL构造器实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="注解的方式实现SQL构造器实现" />
+    <MESSAGE value="添加验证码" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加验证码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1802,8 +1802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="103" column="58" lean-forward="true" selection-start-line="103" selection-start-column="58" selection-end-line="103" selection-end-column="58" />
+        <state relative-caret-position="250">
+          <caret line="106" column="26" lean-forward="false" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
