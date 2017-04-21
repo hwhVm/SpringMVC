@@ -7,8 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5689c234-b8ce-4bdd-880e-75a50062e272" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/activation.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/additionnal.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mail.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/controller/EmailController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/utils/DESUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/utils/SendEMail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SpringMVC_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SpringMVC_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpringMVC.iml" afterPath="$PROJECT_DIR$/SpringMVC.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/SpringMVC_war_exploded/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,13 +57,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthCodeController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AjaxController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AjaxController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthCodeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="31" />
+            <state relative-caret-position="502">
+              <caret line="98" column="55" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/beini/controller/EmailController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-198">
+              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1295#1296#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DESUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/beini/utils/DESUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendEMail.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/beini/utils/SendEMail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="166" column="8" lean-forward="true" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#1338#1339#0" expanded="true" />
+                <element signature="e#2153#2888#0" expanded="true" />
+                <element signature="e#2887#2888#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,6 +155,7 @@
       <find>DispatcherServlet</find>
       <find>UserMapper</find>
       <find>findUserByIdSql</find>
+      <find>JieAsynTask</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,9 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/beini/bean/Orders.java" />
-        <option value="$PROJECT_DIR$/src/com/beini/test/javaee/PersonMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/com/beini/mapper/OrdersMapper.java" />
         <option value="$PROJECT_DIR$/src/com/beini/mapper/OrdersMapper.xml" />
         <option value="$PROJECT_DIR$/src/com/beini/mapper/PersonMapper.xml" />
         <option value="$PROJECT_DIR$/src/com/beini/mapper/PersonMapper.java" />
@@ -158,6 +217,9 @@
         <option value="$PROJECT_DIR$/src/com/beini/test/javaee/TestWeb.java" />
         <option value="$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/com/beini/controller/EmailController.java" />
+        <option value="$PROJECT_DIR$/src/com/beini/utils/SendEMail.java" />
+        <option value="$PROJECT_DIR$/src/com/beini/utils/DESUtils.java" />
       </list>
     </option>
   </component>
@@ -365,6 +427,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -384,6 +464,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="beini" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -452,32 +536,6 @@
               <option name="myItemId" value="beini" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beini" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -509,7 +567,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../springlib/com.springsource.org.apache.commons.io-1.4.0.jar!/" />
@@ -517,21 +575,21 @@
     <property name="SearchEverywhereHistoryKey" value="ModelAndView &#9;PSI&#9;JAVA://org.springframework.web.servlet.ModelAndView&#10;uploadAction&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\javaee\SpringMVC\src\config" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\javaee\SpringMVC\web\WEB-INF\lib" />
+      <recent name="D:\javaee\SpringMVC\src\com\beini\mapper" />
       <recent name="D:\javaee\SpringMVC\src" />
+      <recent name="D:\javaee\SpringMVC\src\config" />
+      <recent name="D:\javaee\SpringMVC\src\com\beini\test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.beini.mapper" />
       <recent name="com.beini.http.response" />
       <recent name="com.beini.http.request" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\javaee\SpringMVC\src\com\beini\mapper" />
-      <recent name="D:\javaee\SpringMVC\src" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\javaee\SpringMVC\src\config" />
-      <recent name="D:\javaee\SpringMVC\src\com\beini\test" />
-      <recent name="D:\javaee\SpringMVC\web\WEB-INF" />
+      <recent name="D:\javaee\SpringMVC\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1126,7 +1184,7 @@
       <workItem from="1492581613305" duration="45000" />
       <workItem from="1492581685083" duration="8957000" />
       <workItem from="1492669199192" duration="11914000" />
-      <workItem from="1492737215663" duration="2632000" />
+      <workItem from="1492737215663" duration="5709000" />
     </task>
     <task id="LOCAL-00001" summary="添加多文件接收支持&#10;添加一个普通测试get请求接口">
       <created>1491902084633</created>
@@ -1219,7 +1277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492685675167</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="验证验证码功能">
+      <created>1492744089631</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1492744089631</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1255,7 +1320,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160149000" />
+    <option name="totallyTimeSpent" value="163226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1289,7 +1354,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1516793" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34669557" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06933911" sideWeight="0.4936034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17270789" sideWeight="0.4878837" order="0" side_tool="false" content_ui="combo" />
@@ -1359,7 +1424,8 @@
     <MESSAGE value="加入spring拦截器" />
     <MESSAGE value="注解的方式实现SQL构造器实现" />
     <MESSAGE value="添加验证码" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加验证码" />
+    <MESSAGE value="验证验证码功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="验证验证码功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1370,21 +1436,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/beini/bean/Students.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="54" column="5" lean-forward="false" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javaee/MybatisTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/beini/bean/Leader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beini/mapper/LeaderMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -1520,6 +1571,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#235#236#0" expanded="false" />
+            <element signature="e#289#290#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1653,14 +1708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AjaxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beini/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1718,12 +1765,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AjaxController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beini/controller/AuthCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="31" />
+        <state relative-caret-position="502">
+          <caret line="98" column="55" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/controller/EmailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/utils/DESUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/utils/SendEMail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="166" column="8" lean-forward="true" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1338#1339#0" expanded="true" />
+            <element signature="e#2153#2888#0" expanded="true" />
+            <element signature="e#2887#2888#0" expanded="true" />
           </folding>
         </state>
       </provider>
