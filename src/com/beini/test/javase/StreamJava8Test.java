@@ -21,11 +21,9 @@ public class StreamJava8Test {
     public static void main(String[] args) throws InterruptedException {
         List<User> usersList = new ArrayList<>();
         usersList.add(null);
-        User user = new User();
-        user.setName("beini");
+        User user = new User("beini",33);
         usersList.add(user);
-        User user1 = new User();
-        user1.setName("11");
+        User user1 = new User("beini",11);
         usersList.add(user1);
         usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    " + user2.getName()));
 
