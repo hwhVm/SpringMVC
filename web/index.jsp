@@ -72,8 +72,15 @@
             form.submit();
         }
 
-        function chageCode(){
-            $('#codeImage').attr('src','getAuthCode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+        function chageCode() {
+            $('#codeImage').attr('src', 'getAuthCode?abc=' + Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+        }
+        
+        function  subm() {
+            var form = document.forms[0];
+            form.action = "${pageContext.request.contextPath}/isTrueCode";
+            form.method = "post";
+            form.submit();
         }
     </script>
 </head>
@@ -115,20 +122,33 @@
 <a href="queryAllLeader">xml文件配置SpringMVC myBatis</a>
 
 <p>
-  <a href="testSimpleMappingException">SpringMVC中自带的简单异常处理器 SimpleMappingExceptionResolver</a>
+    <a href="testSimpleMappingException">SpringMVC中自带的简单异常处理器 SimpleMappingExceptionResolver</a>
 </p>
 
 <p>
     <a href="http://localhost:8080/js/jquery-3.1.1.min.js">
         静态资源的访问
     </a>
-   </p>
+</p>
 
-<div class="form-group">
-    验证码：<input id="authCode" name="authCode" type="text"/>
-    <!--这里img标签的src属性的值为后台实现图片验证码方法的请求地址-->
-    <label><img type="image" src="getAuthCode" id="codeImage" onclick="chageCode()" title="图片看不清？点击重新得到验证码" style="cursor:pointer;"/></label>
-    <label><a onclick="chageCode()">换一张</a></label>
-</div>
+
+<form action="toLogin.do" id="loginUser" method="post">
+    <div class="form-group">
+        姓名：<input id="name" name="name" type="text"/>
+    </div>
+    <div class="form-group">
+        密码：<input id="password" name="password" type="password"/>
+    </div>
+    <div class="form-group">
+        验证码：<input id="authCode" name="authCode" type="text"/>
+        <!--这里img标签的src属性的值为后台实现图片验证码方法的请求地址-->
+        <label><img type="image" src="getAuthCode" id="codeImage" onclick="chageCode()" title="图片看不清？点击重新得到验证码"
+                    style="cursor:pointer;"/></label>
+        <label><a onclick="chageCode()">换一张</a></label>
+    </div>
+    <input type="button" class="btn btn-default" onclick="subm()" value="登录"/>
+
+</form>
+
 </body>
 </html>
