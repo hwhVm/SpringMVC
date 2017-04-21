@@ -18,8 +18,8 @@ import java.util.List;
 public class EmailController {
     private String host = "smtp.126.com";
     private int port = 25;
-    private String email = "divoom_gz@126.com";
-    private String password = "divoom1234";
+    private String email = "beini@126.com";
+    private String password = "beini1234";
 
     /**
      * 找回密码 验证码+邮箱
