@@ -75,8 +75,8 @@
         function chageCode() {
             $('#codeImage').attr('src', 'getAuthCode?abc=' + Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
         }
-        
-        function  subm() {
+
+        function subm() {
             var form = document.forms[0];
             form.action = "${pageContext.request.contextPath}/isTrueCode";
             form.method = "post";
@@ -149,6 +149,10 @@
     <input type="button" class="btn btn-default" onclick="subm()" value="登录"/>
 
 </form>
+<div>
 
+    <a href="<%=request.getContextPath() %>//gotoWebSocket">websocket page</a>
+
+</div>
 </body>
 </html>
