@@ -1,10 +1,12 @@
 package com.beini.websocket;
 
 import com.beini.utils.BLog;
+import org.java_websocket.WebSocket;
 import org.springframework.web.socket.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by beini on 2017/4/24.
@@ -29,10 +31,10 @@ public class SystemWebSocketHandler implements WebSocketHandler {
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        BLog.d("connect to the websocket success......");
+        BLog.d("connect to the websocket success......  "+(session==null));
         users.add(session);
-//        String userName = (String) session.getAttributes().get(Constants.WEBSOCKET_USERNAME);
         String userName = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
+        BLog.d("userName=="+userName);
         if (userName != null) {
             //查询未读消息
 //            int count = webSocketService.getUnReadNews((String) session.getAttributes().get(Constants.WEBSOCKET_USERNAME));
@@ -51,6 +53,7 @@ public class SystemWebSocketHandler implements WebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         BLog.d("handleMessage");
+
         //sendMessageToUsers();
     }
 

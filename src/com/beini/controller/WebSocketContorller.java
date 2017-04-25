@@ -1,5 +1,6 @@
 package com.beini.controller;
 
+import com.beini.utils.BLog;
 import com.beini.websocket.SystemWebSocketHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,7 @@ public class WebSocketContorller {
     @RequestMapping("auditing")
     @ResponseBody
     public void auditing(HttpServletRequest request) {
-        systemWebSocketHandler().sendMessageToUser("beini", new TextMessage("dddddddddd"));
+        BLog.d("        auditing   "+(systemWebSocketHandler()==null));
+        systemWebSocketHandler().sendMessageToUser("WEBSOCKET_USERNAME", new TextMessage("dddddddddd"));
     }
 }
