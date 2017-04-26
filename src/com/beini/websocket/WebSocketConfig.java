@@ -22,7 +22,7 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry webSocketHandlerRegistry) {
-        BLog.d("   registerWebSocketHandlers");
+        BLog.d(" WebSocketConfig   registerWebSocketHandlers");
         // 支持websocket 的访问链接
         webSocketHandlerRegistry.addHandler(systemWebSocketHandler(), "/webSocketServer").addInterceptors(new WebSocketHandshakeInterceptor());
         // 不支持websocket的访问链接
@@ -32,7 +32,7 @@ public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocke
 
     @Bean
     public WebSocketHandler systemWebSocketHandler() {
-        BLog.d("   systemWebSocketHandler");
+        BLog.d(" WebSocketConfig    systemWebSocketHandler");
         return new SystemWebSocketHandler();
     }
 }

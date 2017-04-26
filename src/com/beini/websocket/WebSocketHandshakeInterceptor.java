@@ -25,16 +25,17 @@ public class WebSocketHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse, WebSocketHandler webSocketHandler, Map<String, Object> map) throws Exception {
-        BLog.d("         beforeHandshake ");
+        BLog.d("  WebSocketHandshakeInterceptor       beforeHandshake ");
         if (serverHttpRequest instanceof ServletServerHttpRequest) {
             ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) serverHttpRequest;
 
-            HttpSession session = servletRequest.getServletRequest().getSession(false);
+            HttpSession session = servletRequest.getServletRequest().getSession(true);
             BLog.d("    session=null?=   "+(session==null));
             if (session != null) {
                 //使用userName区分WebSocketHandler，以便定向发送消息
-                String userName = (String) session.getAttribute("SESSION_USERNAME");
-                BLog.d("   SESSION_USERNAME     userName= "+userName);
+//                String userName = (String) session.getAttribute("SESSION_USERNAME");
+                String userName = "WEBSOCKET_USERNAME";
+                BLog.d("   WEBSOCKET_USERNAME     userName= "+userName);
                 map.put("WEBSOCKET_USERNAME",userName);
             }
         }

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.socket.TextMessage;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 /**
  * Created by beini on 2017/4/24.
@@ -27,10 +30,17 @@ public class WebSocketContorller {
         return new SystemWebSocketHandler();
     }
 
+    @RequestMapping("webSocketSaveSession")
+    public void webSocketSaveSession(HttpServletRequest request, HttpServletResponse response  , HttpSession session, PrintWriter printWriter) {
+        String str = (String) session.getAttribute("userId");
+        BLog.d("    str=="+str);
+        printWriter.write("success ");
+    }
+
     @RequestMapping("auditing")
     @ResponseBody
     public void auditing(HttpServletRequest request) {
-        BLog.d("        auditing   "+(systemWebSocketHandler()==null));
+        BLog.d("        auditing   " + (systemWebSocketHandler() == null));
         systemWebSocketHandler().sendMessageToUser("WEBSOCKET_USERNAME", new TextMessage("dddddddddd"));
     }
 }

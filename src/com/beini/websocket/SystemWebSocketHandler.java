@@ -31,17 +31,9 @@ public class SystemWebSocketHandler implements WebSocketHandler {
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        BLog.d("connect to the websocket success......  "+(session==null));
+        BLog.d("   SystemWebSocketHandler        connect to the websocket success......  "+(session==null));
+//        session.sendMessage(new TextMessage("Server:connected OK!"));
         users.add(session);
-        String userName = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
-        BLog.d("userName=="+userName);
-        if (userName != null) {
-            //查询未读消息
-//            int count = webSocketService.getUnReadNews((String) session.getAttributes().get(Constants.WEBSOCKET_USERNAME));
-//            int count = webSocketService.getUnReadNews((String) session.getAttributes().get("WEBSOCKET_USERNAME"));
-            int count = 0;
-            session.sendMessage(new TextMessage(count + ""));
-        }
     }
 
     /**
@@ -52,9 +44,13 @@ public class SystemWebSocketHandler implements WebSocketHandler {
      */
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
-        BLog.d("handleMessage");
+        BLog.d("SystemWebSocketHandler         handleMessage");
 
-        //sendMessageToUsers();
+//        TextMessage returnMessage = new TextMessage(message.getPayload()
+//                + " received at server");
+//        System.out.println(session.getHandshakeHeaders().getFirst("Cookie"));
+//        session.sendMessage(returnMessage);
+
     }
 
     @Override
@@ -62,13 +58,13 @@ public class SystemWebSocketHandler implements WebSocketHandler {
         if (session.isOpen()) {
             session.close();
         }
-        BLog.d("websocket connection closed......");
+        BLog.d("SystemWebSocketHandler      websocket connection closed......");
         users.remove(session);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-        BLog.d("websocket connection closed......");
+        BLog.d(" SystemWebSocketHandler   websocket connection closed......");
         users.remove(session);
     }
 
@@ -101,13 +97,17 @@ public class SystemWebSocketHandler implements WebSocketHandler {
      * @param message
      */
     public void sendMessageToUser(String userName, TextMessage message) {
+            BLog.d("  给某个用户发送消息 sendMessageToUser");
         for (WebSocketSession user : users) {
+            BLog.d("     user.getAttributes().get(\"WEBSOCKET_USERNAME\")="+user.getAttributes().get("WEBSOCKET_USERNAME")+"  userName="+userName);
             if (user.getAttributes().get("WEBSOCKET_USERNAME").equals(userName)) {
                 try {
+                    BLog.d("    user.isOpen()="+user.isOpen());
                     if (user.isOpen()) {
                         user.sendMessage(message);
                     }
                 } catch (IOException e) {
+                    BLog.d("   e="+e.getLocalizedMessage());
                     e.printStackTrace();
                 }
                 break;
