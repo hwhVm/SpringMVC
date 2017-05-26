@@ -1,16 +1,15 @@
 package com.beini.controller.mobile;
 
 import com.beini.bean.User;
-import com.beini.constants.Constant;
 import com.beini.http.request.PageRequest;
 import com.beini.http.request.UserRequest;
 import com.beini.http.response.BaseResponseJson;
 import com.beini.service.UserService;
+import com.beini.utils.Base64Util;
 import com.beini.utils.PageTableForm;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,7 +53,7 @@ public class UserMController {
         response.setContentType("text/htm;charset=utf-8");
         response.setHeader("pragma", " no-cache");
         response.setHeader("cache-control", "no-cache");
-        out.write(new Gson().toJson(responseJson).toString());
+        out.write(Base64Util.encode(new Gson().toJson(responseJson)));
 
     }
 
