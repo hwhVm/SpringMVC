@@ -49,17 +49,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PageTableForm queryUserInfo(PageTableForm pageTableForm) {
-        System.out.println("pageTableForm.getCurrentPage()= "+pageTableForm.getCurrentPage()+"  pageTableForm.getPageSize()= "+pageTableForm.getPageSize());
-        userList=userMapper.queryUserInfo(pageTableForm.getCurrentPage(),pageTableForm.getPageSize());
+        System.out.println("pageTableForm.getCurrentPage()= " + pageTableForm.getCurrentPage() + "  pageTableForm.getPageSize()= " + pageTableForm.getPageSize());
+        userList = userMapper.queryUserInfo(pageTableForm.getCurrentPage(), pageTableForm.getPageSize());
 
         pageTableForm.setUserList(userList);
-        System.out.println("     userList.size()="+userList.size());
+        System.out.println("     userList.size()=" + userList.size());
         return pageTableForm;
     }
 
     @Override
     public int getCount() {
         return userMapper.getCount();
+    }
+
+    @Override
+    public List<User> queryUserByPassord(User user) {
+        return userMapper.queryUserByPassord(user.getName(), user.getPassword());
     }
 
 

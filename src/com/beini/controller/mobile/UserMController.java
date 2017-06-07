@@ -1,10 +1,12 @@
 package com.beini.controller.mobile;
 
 import com.beini.bean.User;
+import com.beini.http.request.LoginRequest;
 import com.beini.http.request.PageRequest;
 import com.beini.http.request.UserRequest;
 import com.beini.http.response.BaseResponseJson;
 import com.beini.service.UserService;
+import com.beini.utils.BLog;
 import com.beini.utils.Base64Util;
 import com.beini.utils.PageTableForm;
 import com.google.gson.Gson;
@@ -28,6 +30,36 @@ public class UserMController {
     @Autowired
     private UserService userService;
 
+    /**
+     * login
+     *
+     * @param loginRequest
+     * @param response
+     * @param out
+     */
+    @RequestMapping("loginm")
+    public void loginM(@RequestBody LoginRequest loginRequest,
+                       HttpServletResponse response, PrintWriter out) {
+        String account = loginRequest.getAccount();
+        String password = loginRequest.getPassword();
+        BLog.d("  account="+account+"   password="+password);
+        User user = new User();
+        user.setName(account);
+        user.setPassword(password);
+        List<User> users = userService.queryUserByPassord(user);
+
+        BaseResponseJson responseJson = new BaseResponseJson();
+        if (users != null && users.size() == 1) {
+            responseJson.setReturnCode(0);
+        } else {
+            responseJson.setReturnCode(1);
+        }
+
+        response.setContentType("text/htm;charset=utf-8");
+        response.setHeader("pragma", " no-cache");
+        response.setHeader("cache-control", "no-cache");
+        out.write(new Gson().toJson(responseJson));
+    }
 
     @RequestMapping("queryAllM")
     public void queryAllM(HttpServletRequest request, HttpServletResponse response, PrintWriter printWriter) {

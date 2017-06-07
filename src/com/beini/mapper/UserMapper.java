@@ -34,6 +34,9 @@ public interface UserMapper {
     @Select("select count(*) from User")
     int getCount();
 
+    @Select("select * from User where name=#{name} and  password=#{password}")
+    List<User> queryUserByPassord(@Param("name") String name, @Param("password") String password);
+
     /**
      * SQL构造器实现 http://blog.csdn.net/u013214151/article/details/52211614
      */
@@ -42,5 +45,6 @@ public interface UserMapper {
 
     @SelectProvider(type = UserSql.class, method = "findUserByIdSql")
     User findUserById(int id);
+
 
 }

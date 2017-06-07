@@ -27,4 +27,6 @@ public interface UserService {
     PageTableForm queryUserInfo(PageTableForm pageTableForm);//分页
 
     int getCount();//分页得到的数量
+
+    List<User> queryUserByPassord(User user);
 }
