@@ -17,10 +17,9 @@ import java.util.List;
 @Component
 @Controller
 @RequestMapping("/")
-public class LeaderController {
+public class LeaderController extends BaseController{
 
-    @Autowired
-    private LeaderService leaderService;
+
 
     /**
      * 批量插入

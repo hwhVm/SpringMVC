@@ -1,6 +1,7 @@
 package com.beini.controller.mobile;
 
 import com.beini.bean.User;
+import com.beini.controller.BaseController;
 import com.beini.http.request.LoginRequest;
 import com.beini.http.request.PageRequest;
 import com.beini.http.request.UserRequest;
@@ -26,9 +27,7 @@ import java.util.List;
  * Created by beini on 2017/4/11.
  */
 @Controller
-public class UserMController {
-    @Autowired
-    private UserService userService;
+public class UserMController extends BaseController {
 
     /**
      * login
@@ -42,7 +41,7 @@ public class UserMController {
                        HttpServletResponse response, PrintWriter out) {
         String account = loginRequest.getAccount();
         String password = loginRequest.getPassword();
-        BLog.d("  account="+account+"   password="+password);
+        BLog.d("  account=" + account + "   password=" + password);
         User user = new User();
         user.setName(account);
         user.setPassword(password);
@@ -61,11 +60,25 @@ public class UserMController {
         out.write(new Gson().toJson(responseJson));
     }
 
+    /**
+     * query all
+     *
+     * @param request
+     * @param response
+     * @param printWriter
+     */
     @RequestMapping("queryAllM")
     public void queryAllM(HttpServletRequest request, HttpServletResponse response, PrintWriter printWriter) {
         printWriter.write("queryAll ");
     }
 
+    /**
+     * 添加 User
+     *
+     * @param userRequest
+     * @param response
+     * @param out
+     */
     @RequestMapping("insertUserM")
     public void addUserM(@RequestBody UserRequest userRequest,
                          HttpServletResponse response, PrintWriter out) {
@@ -77,6 +90,7 @@ public class UserMController {
         User user = new User();
         user.setName(userRequest.getName());
         user.setAge(userRequest.getAge());
+        //满足条件进行插入
         userService.insertUser(user);
 
         BaseResponseJson responseJson = new BaseResponseJson();
