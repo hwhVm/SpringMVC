@@ -37,7 +37,7 @@
 
     -->
     <insert id="insertLeader" useGeneratedKeys="true" keyProperty="id" parameterType="Leader">
-        insert into Leader (name,age) values (#{name},#{age})
+        insert into Leader (name,age,password) values (#{name},#{age},#{password})
     </insert>
 
     <update id="updateLeader" parameterType="Leader">
@@ -69,5 +69,9 @@
             update Leader set name = #{item.name},age = #{item.age} where id = ${item.id}
         </foreach>
     </update>
-
+    <!-- resultType代表的是List中的元素类型  login
+     -->
+    <select id="doUserLogin" resultType="Leader">
+        select * from Leader WHERE name = #{name} AND password=#{password}
+    </select>
 </mapper>

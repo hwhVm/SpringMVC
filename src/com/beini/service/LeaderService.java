@@ -14,4 +14,6 @@ public interface LeaderService {
     List<Leader> queryAll();
 
     void inserUsers(List<Leader> users);
+
+    List<Leader> doUserLogin(Leader user);
 }

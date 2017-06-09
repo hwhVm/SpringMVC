@@ -37,4 +37,6 @@ public interface LeaderMapper {
 
     //批量更新
     void updatesMethod1(@Param("updatesLeader") List<Leader> leaders);
+
+    List<Leader> doUserLogin(Leader leader);
 }

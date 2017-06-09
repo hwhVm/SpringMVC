@@ -1,15 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.0.xsd
-	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 数据库保存的密码是使用MD5算法加密的，所以这里需要配置一个密码匹配对象 -->
+    <!--<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher"/>-->
+    <!-- 缓存管理 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+
+    <!-- 配置进行授权和认证的 Realm -->
+    <bean id="myRealm" class="com.beini.controller.shiro.ShiroDbRealm">
+        <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
+        <property name="cachingEnabled" value="true"/>
+        <property name="authenticationCachingEnabled" value="true"/>
+        <property name="authenticationCacheName" value="authenticationCache"/>
+        <property name="authorizationCachingEnabled" value="true"/>
+        <property name="authorizationCacheName" value="authorizationCache"/>
+    </bean>
+
+    <!-- Shiro安全管理器  Shiro 应用程序需要一个具有单例SecurityManager 实例的应用程序。请注意，这不会是一个静态的单例，但应该只有一个应用程序能够使用的实例，无论它是否是静态单例的。-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <!--
+     Shiro主过滤器本身功能十分强大，其强大之处就在于它支持任何基于URL路径表达式的、自定义的过滤器的执行
+     Web应用中，Shiro可控制的Web请求必须经过Shiro主过滤器的拦截，Shiro对基于Spring的Web应用提供了完美的支持
+  -->
+    <!--
+        测试用例中对/security/*的访问是不需要认证控制的，这主要是用于用户登录和退出的
+        测试用例中对/tag的访问是需要认证控制的，就是说只有通过认证的用户才可以访问该资源。
+        如果用户直接在地址栏中访问http://localhost:8880/learning/tag，系统会自动跳转至登录页面，要求用户先进行身份认证。
+    -->
+    <!-- 启用shrio授权注解拦截方式 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面   登录页面-->
+        <property name="loginUrl" value="/index.jsp"/>
+        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+        <!--<property name="successUrl" value="/jsp/success.jsp" />-->
+        <!-- 用户访问未对其授权的资源时，所显示的连接 -->
+        <property name="unauthorizedUrl" value="/"/>
+        <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
+        <property name="filterChainDefinitions">
+            <!--
+            anno，任何人都可以访问；
+            authc：必须是登录之后才能进行访问，不包括remember me；
+            user：登录用户才可以访问，
+            包含remember me；perms：指定过滤规则，这个一般是扩展使用，不会使用原生的；其中filterChainDefinitions 就是指定过滤规则的，
+            一般公共配置使用配置文件，例如jss css img这些资源文件是不拦截的，相关业务的url配置到数据库，有过滤器查询数据库进行权限判断。
+            拦截器的优先级：从上到下，从左到右，如果有匹配的拦截器就会阻断并返回
+            frameperms 就是我们自定义实现的过滤器,从数据库中查询用户的权限,判断当前用户是否有权限访问拦截的url.
+            -->
+            <value>
+                /security/*=anon
+                /tag=authc
+            </value>
+        </property>
+    </bean>
 
 
-
+    <!--
+    开启Shiro的注解(如@RequiresRoles，@RequiresPermissions)，需借助SpringAOP扫描使用Shiro注解的类，
+    并在必要时进行安全逻辑验证
+ -->
+    <!--
+    <bean
+        class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+    <bean
+        class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"></property>
+    </bean>
+    -->
 </beans>

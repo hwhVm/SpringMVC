@@ -2,6 +2,7 @@ package com.beini.test.javaee;
 
 import com.beini.bean.Leader;
 import com.beini.mapper.LeaderMapper;
+import com.beini.utils.MD5Util;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +42,15 @@ public class LeaderTest {
 
     @org.junit.Test
     public void insertLeaderTest() {
-        Leader leader = new Leader();
-        leader.setId(48);
-        leader.setAge(11);
-        leader.setName("lllllll");
-//        leaderMapper.insertLeader(leader);
-//        leaderMapper.deleteLeader(49);
-        leaderMapper.updateLeader(leader);
+        for (int i = 0; i < 100; i++) {
+            Leader leader = new Leader();
+            leader.setId(i);
+            leader.setAge(i + 4);
+            leader.setName("beini" + 1);
+            String password = "123456" + i;
+            leader.setPassword(MD5Util.string2MD5(password));
+            leaderMapper.insertLeader(leader);
+        }
     }
 
     /**

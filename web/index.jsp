@@ -154,5 +154,10 @@
     <a href="<%=request.getContextPath() %>//gotoWebSocket">websocket page</a>
 
 </div>
+<%--测试权限框架shiro--%>
+<div>
+
+
+</div>
 </body>
 </html>

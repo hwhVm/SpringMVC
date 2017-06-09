@@ -10,6 +10,15 @@ public class User {
     private int age;
     private String password;
 
+    public User() {
+
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     public String getPassword() {
         return password;
     }

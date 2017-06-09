@@ -24,9 +24,10 @@ import java.util.concurrent.Callable;
  */
 @Controller
 @RequestMapping("/")
-public class UserController extends BaseController{
+public class UserController  {
 
-
+    @Autowired
+    private UserService userService;
     /**
      * 同步操作
      */

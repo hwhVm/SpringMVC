@@ -33,4 +33,9 @@ public class LeaderServiceImpl implements LeaderService {
     public void inserUsers(List<Leader> leaders) {
         leaderMapper.insertsLeader(leaders);
     }
+
+    @Override
+    public List<Leader> doUserLogin(Leader leader) {
+        return leaderMapper.doUserLogin(leader);
+    }
 }

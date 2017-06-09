@@ -1,7 +1,6 @@
 package com.beini.controller.mobile;
 
 import com.beini.bean.User;
-import com.beini.controller.BaseController;
 import com.beini.http.request.LoginRequest;
 import com.beini.http.request.PageRequest;
 import com.beini.http.request.UserRequest;
@@ -27,8 +26,9 @@ import java.util.List;
  * Created by beini on 2017/4/11.
  */
 @Controller
-public class UserMController extends BaseController {
-
+public class UserMController {
+    @Autowired
+    private UserService userService;
     /**
      * login
      *
