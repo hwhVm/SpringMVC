@@ -9,7 +9,9 @@ import com.google.gson.Gson;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.subject.support.DelegatingSubject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by beini on 2017/4/15.
@@ -38,28 +41,33 @@ public class LeaderController {
      */
     @RequestMapping(value = "dologin", method = RequestMethod.POST)
     public void login(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
-        String msg = "";
+        String msg;
         String userName = request.getParameter("name");
         String password = request.getParameter("password");
-        BLog.d("   name==" + userName + "   " + "   password==" + password);
+
         //userName 和  password不能为null
         Leader leader = new Leader();
         leader.setPassword(password);
         leader.setName(userName);
 
         //判断是否已经登录
-        Subject us = SecurityUtils.getSubject();
-        BLog.d("    ---> " + us.isAuthenticated());
-        if (us.isAuthenticated()) { // 参数未改变，无需重新登录，默认为已经登录成功
+        Subject subject = SecurityUtils.getSubject();
+        BLog.d(" 是否已经登录==" + subject.isAuthenticated());
+
+        //得到一个身份集合，其包含了Realm验证成功的身份信息
+        PrincipalCollection principalCollection = subject.getPrincipals();
+
+        if (subject.isAuthenticated()) { // 参数未改变，无需重新登录，默认为已经登录成功
             msg = "success";
         } else {// 需要重新登陆
             // 组装token，包括客户公司名称、简称、客户编号、用户名称；密码
             UsernamePasswordToken token = new UsernamePasswordToken(leader.getName(), leader.getPassword().toCharArray());
             token.setRememberMe(true);
+
             // shiro登陆验证
             BLog.d("    ---> shiro登陆验证");
             try {
-                SecurityUtils.getSubject().login(token);
+                subject.login(token);
                 msg = "success";
             } catch (UnknownAccountException ex) {
                 msg = "帐号不存在. There is no user with username of " + token.getPrincipal();
@@ -79,12 +87,14 @@ public class LeaderController {
                 ex.printStackTrace();
                 msg = "内部错误，请重试！";
             }
-        }
 
+        }
+        BLog.d("  --------------->subject.isAuthenticated()="+subject.isAuthenticated());
         BLog.d("  msg==" + msg);
         BaseResponseJson responseJson = new BaseResponseJson();
         if ("success".equals(msg)) {
             responseJson.setReturnCode(0);
+            subject.logout();
         } else {
             responseJson.setReturnCode(1);
         }
@@ -95,12 +105,26 @@ public class LeaderController {
         out.write(new Gson().toJson(responseJson));
     }
 
+    /**
+     * 模拟登陆后的授权  获取所有用户的信息
+     */
+
     @RequestMapping("queryAllLeader")
     public void queryAllLeader() {
-        BLog.d("  queryAllLeader    ");
-        List<Leader> leaders = leaderService.queryAll();
-        BLog.d("  leaders.size()===" + leaders.size());
+        Subject us = SecurityUtils.getSubject();
+        BLog.d("       us.isAuthenticated()==" + us.isAuthenticated());
+        if (us.isAuthenticated()) {//判定是否登陆，判定是否有权限
+//            us.isPermitted("0");//0获取所有用户信息，1 获取部分1-100条数据， 2 禁止查询
+            boolean hasPermission = us.hasRole("0");
+            BLog.d("          hasPermission==" + hasPermission);
 
+
+            List<Leader> leaders = leaderService.queryAll();
+            BLog.d("  leaders.size()===" + leaders.size());
+
+        } else {
+
+        }
 
     }
 
