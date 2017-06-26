@@ -24,15 +24,6 @@ public class ShiroDbRealm extends AuthorizingRealm {
     private LeaderService leaderService;
     public static final String SESSION_USER_KEY = "gray";
 
-    /**
-     * 构造函数，设置安全的初始化信息
-     */
-    public ShiroDbRealm() {
-        super();
-        BLog.d("--->ShiroDbRealm");
-        setAuthenticationTokenClass(UsernamePasswordToken.class);
-    }
-
     @Override
     public boolean supports(AuthenticationToken token) {
         return super.supports(token);
@@ -64,13 +55,13 @@ public class ShiroDbRealm extends AuthorizingRealm {
         if (ui.size() == 0) {
             throw new UnknownAccountException(); // 异常处理，找不到数据
         }
-        BLog.d("   可以登录 ");
+
         // 设置session
         Session session = SecurityUtils.getSubject().getSession();
         session.setAttribute(ShiroDbRealm.SESSION_USER_KEY, ui.get(0));
         //当前 Realm 的 name
         String realmName = this.getName();
-        BLog.d(" this.getName()   realmName ==" + this.getName());
+        BLog.d("    realmName ==" + realmName);
         //登陆的主要信息: 可以是一个实体类的对象, 但该实体类的对象一定是根据 token 的 username 查询得到的.
 //        Object principal = ui.get(0).getName();
 //        Object principal = authenticationToken.getPrincipal();
