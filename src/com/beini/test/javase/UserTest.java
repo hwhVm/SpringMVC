@@ -27,6 +27,18 @@ public class UserTest {
 //
 //        System.out.println("index1 = " + index1);
 //        System.out.println("index2 = " + index2);
-
+        System.out.println("dd".equals(String.class));
+        /**
+         * 代码 》 编译 》 字节码
+         */
+        A a1 = new A();
+        System.out.println(" a1="+a1.a);
+        System.out.println(" a1.returnA()="+a1.returnA());
+        B b1 = new B();
+        System.out.println(" b1="+b1.a);
+        System.out.println(" b1.returnA()="+b1.returnA());
+        A a2 = new B();
+        System.out.println(" a2="+a2.a);
+        System.out.println(" a2.returnA()="+a2.returnA());
     }
 }
