@@ -1,4 +1,4 @@
-package com.beini.test.javase;
+package com.beini.test.javase.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -19,18 +19,18 @@ public class ReflectTest {
 //        a2.returnA();
 
         //------------
-        A a = A.class.newInstance();
-        Field field = A.class.getDeclaredField("a");
-        System.out.println("  field.getInt(a)=" + field.getInt(a));
+//        A a = A.class.newInstance();
+//        Field field = A.class.getDeclaredField("a");
+//        System.out.println("  field.getInt(a)=" + field.getInt(a));
 
 //        Field field [] = A.class.getDeclaredFields() ; // 取得全部属性
 //        for (int i=0;i<field.length;i++) {
 //            System.out.println("    " + field[i]);
 //        }
 
-        Method method = a.getClass().getDeclaredMethod("printSomething",null);
-        method.setAccessible(true);
-        method.invoke(a,null);
+//        Method method = a.getClass().getDeclaredMethod("printSomething",null);
+//        method.setAccessible(true);
+//        method.invoke(a,null);
 
 //        Method[] methods = A.class.getDeclaredMethods();
 //        for (int i = 0; i < methods.length; i++) {

@@ -1,4 +1,4 @@
-package com.beini.test.javase;
+package com.beini.test.javase.actual;
 
 import javax.swing.*;
 import java.awt.*;

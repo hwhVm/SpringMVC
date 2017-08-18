@@ -1,14 +1,11 @@
-package com.beini.test.javase;
+package com.beini.test.javase.socket;
 
 import com.beini.utils.BLog;
 import org.java_websocket.WebSocket;
 import org.java_websocket.framing.Framedata;
-import org.java_websocket.framing.FramedataImpl1;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;

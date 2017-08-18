@@ -1,15 +1,12 @@
-package com.beini.test.javase;
+package com.beini.test.javase.java8;
 
 
-import com.beini.controller.intercepto.CustomerInterceptor;
+import com.beini.test.javase.bean.User;
 import com.beini.utils.BLog;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**

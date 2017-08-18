@@ -1,7 +1,8 @@
-package com.beini.test.javase;
+package com.beini.test.javase.gc;
+
+import com.beini.test.javase.bean.User;
 
 import java.lang.ref.WeakReference;
-import java.util.WeakHashMap;
 
 /**
  * Created by beini on 2017/4/24.

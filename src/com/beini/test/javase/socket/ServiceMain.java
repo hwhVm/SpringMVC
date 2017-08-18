@@ -1,4 +1,4 @@
-package com.beini.test.javase;
+package com.beini.test.javase.socket;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
