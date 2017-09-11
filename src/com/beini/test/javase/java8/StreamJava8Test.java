@@ -16,17 +16,33 @@ import java.util.stream.Collectors;
 public class StreamJava8Test {
 
     public static void main(String[] args) throws InterruptedException {
-        List<User> usersList = new ArrayList<>();
-        usersList.add(null);
-        User user = new User("beini",33);
-        usersList.add(user);
-        User user1 = new User("beini",11);
-        usersList.add(user1);
-        usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    " + user2.getName()));
-
-        BLog.d("     ------>StreamJava8Test");
+//        List<User> usersList = new ArrayList<>();
+//        usersList.add(null);
+//        User user = new User("beini",33);
+//        usersList.add(user);
+//        User user1 = new User("beini",11);
+//        usersList.add(user1);
+//        usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    " + user2.getName()));
+//
+//        BLog.d("     ------>StreamJava8Test");
+        collectTest();
     }
+    /**
+     * collect() ：返回一个新的集合
+     */
+    public static void collectTest() {
+        List<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
 
+        List _list = list.stream().filter((param) -> param % 2 == 0).collect(Collectors.toList());
+        _list.forEach(System.out::println);
+
+
+    }
     /**
      * 串行和并行的流,
      * 通过 stream.parallel() 返回并行的流。
@@ -64,20 +80,7 @@ public class StreamJava8Test {
         System.out.println(list.stream().max((param1, param2) -> param1 > param2 ? 1 : -1).get());
     }
 
-    /**
-     * collect() ：返回一个新的集合
-     */
-    public static void collectTest() {
-        List<Integer> list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
 
-        List _list = list.stream().filter((param) -> param % 2 == 0).collect(Collectors.toList());
-        _list.forEach(System.out::println);
-    }
 
     /**
      * reduce() ：把Stream 元素组合起来。

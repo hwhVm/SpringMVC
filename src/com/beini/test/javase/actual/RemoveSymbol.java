@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Created by beini on 2017/5/9.
  */
-public class RemoveSymbol {
+public class   RemoveSymbol {
     static String path = "C:\\Users\\Administrator\\Desktop\\dibot 2.0 切片\\dibot 2.0 切片\\png";//文件地址
 
     public static void main(String[] args) throws Exception {
