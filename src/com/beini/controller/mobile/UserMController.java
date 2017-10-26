@@ -67,7 +67,7 @@ public class UserMController {
      * @param response
      * @param printWriter
      */
-    @RequestMapping("queryAllM")
+        @RequestMapping("queryAllM")
     public void queryAllM(HttpServletRequest request, HttpServletResponse response, PrintWriter printWriter) {
         printWriter.write("queryAll ");
     }
