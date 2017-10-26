@@ -9,8 +9,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringTest {
 
 	 public static void main(String[] args) {
-		 ApplicationContext ctx = new ClassPathXmlApplicationContext("config/spring-common.xml");
-		 Object userMapper = ctx.getBean("userMapper");
-		 System.out.println(userMapper);
+//		 ApplicationContext ctx = new ClassPathXmlApplicationContext("config/spring-common.xml");
+//		 Object userMapper = ctx.getBean("userMapper");
+//		 System.out.println(userMapper);
+
+		 Integer a = new Integer(1);
+		 Integer.valueOf(1);
+//		 new Long(1).equals()
+
 	 }
 }
