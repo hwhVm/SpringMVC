@@ -15,6 +15,8 @@
           <element id="library" level="project" name="slf4j-log4j12-1.7.25" />
           <element id="library" level="project" name="java_websocket" />
           <element id="library" level="project" name="netty-all-4.1.14.Final" />
+          <element id="library" level="project" name="snappy-java-1.1.4" />
+          <element id="library" level="project" name="lz4-java-1.4" />
         </element>
       </element>
     </root>

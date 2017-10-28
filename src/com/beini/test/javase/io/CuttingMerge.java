@@ -12,15 +12,7 @@ import java.util.List;
  * Created by beini on 2017/10/28.
  * 1 RandomAccessFile
  * 2 解决编码问题 OutputStreamWriter oStreamWriter = new OutputStreamWriter(new FileOutputStream(file), "utf-8");
- * 3 压缩：Google  Snappy ,https://github.com/xerial/snappy-java
- * zlib
- * lz4:https://github.com/lz4/lz4-java
- * java 自带的：
- * <p>
- * JDK GZIP:压缩比高的慢速算法，压缩后的数据适合长期使用。JDK中的java.util.zip.GZIPInputStream / GZIPOutputStream便是这个算法的实现。
- * <p>
- * , JDK deflate:
- * 这是JDK中的又一个算法（zip文件用的就是这一算法）。它与gzip的不同之处在于，你可以指定算法的压缩级别，这样你可以在压缩时间和输出文件大小上进行平衡。可选的级别有0（不压缩），以及1(快速压缩)到9（慢速压缩）。它的实现是java.util.zip.DeflaterOutputStream / InflaterInputStream。
+ *它的实现是java.util.zip.DeflaterOutputStream / InflaterInputStream。
  */
 public class CuttingMerge {
 
