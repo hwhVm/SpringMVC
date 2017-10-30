@@ -3,10 +3,10 @@ package com.beini.test.javase.compress;
 
 import net.jpountz.lz4.*;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * Created by beini on 2017/10/28.
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CompressTest {
     /**
      * 压缩：Google  Snappy ,https://github.com/xerial/snappy-java
-     * zlib
+     * zlib:
      * lz4:https://github.com/lz4/lz4-java
      * java 自带的：
      * <p>
@@ -25,66 +25,128 @@ public class CompressTest {
      * http://www.findsrc.com/columnist/detail/8638
      */
 
-    public static void main(String[] args) throws IOException {
-        compressFile();
-    }
 
     //文件压缩
     public static void compressFile() throws IOException {
-        String filePath = "D:/demo/aa.pdf";
+        String filePath = "D:/demo/aa.doc";
         String cellFilePath = "D:/demo/copy/aa.zip";
-        FileInputStream fileInputStream;
-        FileOutputStream filefOutputStream;
 
-        byte[] bufferByte = new byte[10 * 1024 * 1024];//10 M
-        int len;
-        fileInputStream = new FileInputStream(filePath);
-        filefOutputStream = new FileOutputStream(cellFilePath);
-        LZ4Factory factory = LZ4Factory.fastestInstance();
+//        byte[] compressByte = Lz4Util.lz4Compress(Lz4Util.returnFileByte(filePath), 1024);
+        byte[] srcByte = Lz4Util.returnFileByte(filePath);
+        byte[] compressByte = Lz4Util.compressedByte(srcByte);
+        //
+        Lz4Util.createFile(compressByte, cellFilePath);
+        byte[] decompressor = Lz4Util.lz4Decompress(compressByte, srcByte.length);
 
-        LZ4Compressor compressor = factory.fastCompressor();
-        LZ4FastDecompressor decompresser = factory.fastDecompressor();
+//        Lz4Util.createFile(decompressor, cellFilePath);
+    }
 
-        LZ4BlockInputStream lz4BlockInputStream = new LZ4BlockInputStream(fileInputStream, decompresser);
-        LZ4BlockOutputStream lz4BlockOutputStream = new LZ4BlockOutputStream(filefOutputStream);
-
-        while ((len = lz4BlockInputStream.read(bufferByte)) != -1) {
-            System.out.println("   -------------- ");
-            lz4BlockOutputStream.write(bufferByte, 0, len);
+    private static void createFile(byte[] bfile, String filePath, String fileName) {
+        BufferedOutputStream bos = null;
+        FileOutputStream fos = null;
+        File file = null;
+        try {
+            File dir = new File(filePath);
+            if (!dir.exists() && dir.isDirectory()) {//判断文件目录是否存在
+                dir.mkdirs();
+            }
+            file = new File(filePath + "\\" + fileName);
+            fos = new FileOutputStream(file);
+            bos = new BufferedOutputStream(fos);
+            bos.write(bfile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (bos != null) {
+                try {
+                    bos.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
         }
-//        lz4BlockOutputStream.flush();
-        lz4BlockOutputStream.close();
-        lz4BlockInputStream.close();
+    }
+
+
+    public static byte[] compress(byte[] srcBytes) throws IOException {
+        LZ4Factory factory = LZ4Factory.fastestInstance();
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        LZ4Compressor compressor = factory.fastCompressor();
+        LZ4BlockOutputStream compressedOutput = new LZ4BlockOutputStream(
+                byteOutput, 2048, compressor);
+        compressedOutput.write(srcBytes);
+        compressedOutput.close();
+        return byteOutput.toByteArray();
+    }
+
+    public static byte[] decompressor(byte[] bytes) throws IOException {
+        LZ4Factory factory = LZ4Factory.fastestInstance();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        LZ4FastDecompressor decompresser = factory.fastDecompressor();
+        LZ4BlockInputStream lzis = new LZ4BlockInputStream(
+                new ByteArrayInputStream(bytes), decompresser);
+        int count;
+        byte[] buffer = new byte[2048];
+        while ((count = lzis.read(buffer)) != -1) {
+            baos.write(buffer, 0, count);
+        }
+        lzis.close();
+        return baos.toByteArray();
+    }
+
+    public static void main(String[] args) throws Exception {
+        compressFile();
+//        byte[] srcByte = new byte[9000000];
+//        for (int i = 0; i < 9000000; i++) {
+//            srcByte[i] = 'a';
+//        }
+//        long startTime = System.currentTimeMillis();
+//
+//        System.out.println(" srcByte.length= " + srcByte.length);
+//        byte[] cB = lz4Util.lz4Compress(srcByte, 1024);
+//        System.out.println("  cB.length= " + cB.length);
+//        byte[] db = lz4Util.lz4Decompress(cB, 1024);
+//        System.out.println(" db.length= " + db.length);
+//
+//        long endTime = System.currentTimeMillis();
+//        System.out.println(" endTime-startTime=" + (endTime - startTime));
+//        test1();
+
     }
 
     /**
      * //lz4压缩
-     * public static byte[] lz4Compress(byte[] data) throws IOException {
-     * LZ4Factory factory = LZ4Factory.fastestInstance();
-     * ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
-     * LZ4Compressor compressor = factory.fastCompressor();
-     * LZ4BlockOutputStream compressedOutput = new LZ4BlockOutputStream(byteOutput, 8192, compressor);
-     * compressedOutput.write(data);
-     * compressedOutput.close();
-     * return byteOutput.toByteArray();
-     * }
      */
-    public void test1() {
+    public static void test1() {
         LZ4Factory factory = LZ4Factory.fastestInstance();
 
         byte[] data = "123456789jjjjjjjjjjjjjjjjjjjjjjjjfddjjjjjjjjjjjjjjjjjjjdddddjjjjjjjjjdjjjjjjfjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj".getBytes();
         int decompressedLength = data.length;
         System.out.println("  decompressedLength=" + decompressedLength);
+
         //compress
         LZ4Compressor compressor = factory.fastCompressor();
+
         int maxCompressedLength = compressor.maxCompressedLength(decompressedLength);
         byte[] compressed = new byte[maxCompressedLength];
         int compressedLength = compressor.compress(data, 0, decompressedLength, compressed, 0, maxCompressedLength);
-        System.out.println("  compressedLength= " + compressedLength);
+        byte[] temp = compressor.compress(data);
+        System.out.println("  temp.length= " + temp.length);
+        System.out.println("   compressed.length= " + compressed.length);
+
+
         //decompress  when the decompressed length is known
         LZ4FastDecompressor decompressor = factory.fastDecompressor();
         byte[] restored = new byte[decompressedLength];
         int compressedLength2 = decompressor.decompress(compressed, 0, restored, 0, decompressedLength);
+
         System.out.println(" restored.length=" + restored.length);
         //decompress method 2  when the compressed length is known (a little slower)
         LZ4SafeDecompressor decompressor2 = factory.safeDecompressor();
