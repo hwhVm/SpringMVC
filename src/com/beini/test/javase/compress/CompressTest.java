@@ -2,6 +2,7 @@ package com.beini.test.javase.compress;
 
 
 import net.jpountz.lz4.*;
+import org.xerial.snappy.Snappy;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -25,7 +26,26 @@ public class CompressTest {
      * http://www.findsrc.com/columnist/detail/8638
      */
 
+    public static void main(String[] args) throws Exception {
+//        compressFile();
+//        byte[] srcByte = new byte[9000000];
+//        for (int i = 0; i < 9000000; i++) {
+//            srcByte[i] = 'a';
+//        }
+//        long startTime = System.currentTimeMillis();
+//
+//        System.out.println(" srcByte.length= " + srcByte.length);
+//        byte[] cB = lz4Util.lz4Compress(srcByte, 1024);
+//        System.out.println("  cB.length= " + cB.length);
+//        byte[] db = lz4Util.lz4Decompress(cB, 1024);
+//        System.out.println(" db.length= " + db.length);
+//
+//        long endTime = System.currentTimeMillis();
+//        System.out.println(" endTime-startTime=" + (endTime - startTime));
+//        test1();
+    }
 
+    
     //文件压缩
     public static void compressFile() throws IOException {
         String filePath = "D:/demo/aa.doc";
@@ -101,25 +121,6 @@ public class CompressTest {
         return baos.toByteArray();
     }
 
-    public static void main(String[] args) throws Exception {
-        compressFile();
-//        byte[] srcByte = new byte[9000000];
-//        for (int i = 0; i < 9000000; i++) {
-//            srcByte[i] = 'a';
-//        }
-//        long startTime = System.currentTimeMillis();
-//
-//        System.out.println(" srcByte.length= " + srcByte.length);
-//        byte[] cB = lz4Util.lz4Compress(srcByte, 1024);
-//        System.out.println("  cB.length= " + cB.length);
-//        byte[] db = lz4Util.lz4Decompress(cB, 1024);
-//        System.out.println(" db.length= " + db.length);
-//
-//        long endTime = System.currentTimeMillis();
-//        System.out.println(" endTime-startTime=" + (endTime - startTime));
-//        test1();
-
-    }
 
     /**
      * //lz4压缩

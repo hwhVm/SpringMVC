@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5689c234-b8ce-4bdd-880e-75a50062e272" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/test/javase/compress/GZIPUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lz4_java_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lz4_java_1_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beini/test/javase/compress/SnappyUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java" afterPath="$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java" />
     </list>
@@ -44,14 +42,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Lz4Util.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Util.java">
+      <file leaf-file-name="CuttingMerge.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/io/CuttingMerge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="200">
+              <caret line="26" column="67" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,20 +55,8 @@
       <file leaf-file-name="CompressTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GZIPUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/GZIPUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="676">
+              <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/beini/test/javase/annotation/MyProcessor.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/UserTest.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/collection/UserTest.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/bean/User.java" />
@@ -188,8 +171,9 @@
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Bean.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/lz4Util.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/GZIPUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java" />
         <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Util.java" />
+        <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/SnappyUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java" />
       </list>
     </option>
   </component>
@@ -529,36 +513,6 @@
               <option name="myItemId" value="javase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="thread" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpringMVC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beini" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -641,6 +595,36 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compress" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beini" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -661,6 +645,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="snappy-java-1.1.4.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringMVC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1418,7 +1434,7 @@
       <workItem from="1509155507707" duration="5988000" />
       <workItem from="1509174757905" duration="4574000" />
       <workItem from="1509179554213" duration="4591000" />
-      <workItem from="1509326530939" duration="14444000" />
+      <workItem from="1509326530939" duration="15574000" />
     </task>
     <task id="LOCAL-00001" summary="添加多文件接收支持&#10;添加一个普通测试get请求接口">
       <created>1491902084633</created>
@@ -1672,7 +1688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509184137253</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="添加压缩算法工具类 lz4和GZIIP">
+      <created>1509348139098</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1509348139098</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1708,7 +1731,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469928000" />
+    <option name="totallyTimeSpent" value="471058000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1742,7 +1765,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.312026" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2383532" sideWeight="0.48507464" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1516793" sideWeight="0.48507464" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33152762" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15938166" sideWeight="0.4878837" order="0" side_tool="false" content_ui="combo" />
@@ -1811,7 +1834,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入spring拦截器" />
     <MESSAGE value="注解的方式实现SQL构造器实现" />
     <MESSAGE value="添加验证码" />
     <MESSAGE value="验证验证码功能" />
@@ -1836,7 +1858,8 @@
     <MESSAGE value="引用专递和值专递" />
     <MESSAGE value="文件的切割和合并" />
     <MESSAGE value="添加压缩算法" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加压缩算法" />
+    <MESSAGE value="添加压缩算法工具类 lz4和GZIIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加压缩算法工具类 lz4和GZIIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1849,21 +1872,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/beini/controller/exception/CustomException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="51" column="58" lean-forward="false" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beini/controller/exception/CustomerHandlerExceptionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -2027,6 +2035,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1550">
           <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2050,19 +2059,6 @@
         <state relative-caret-position="161">
           <caret line="303" column="55" lean-forward="true" selection-start-line="303" selection-start-column="55" selection-end-line="303" selection-end-column="55" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/io/CuttingMerge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2150">
-          <caret line="96" column="66" lean-forward="false" selection-start-line="96" selection-start-column="66" selection-end-line="96" selection-end-column="66" />
-          <folding>
-            <element signature="e#2003#2004#0" expanded="false" />
-            <element signature="e#2068#2069#0" expanded="false" />
-            <element signature="e#2150#2151#0" expanded="false" />
-            <element signature="e#2212#2213#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2228,23 +2224,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="1950">
+          <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/Lz4Util.java">
+    <entry file="jar://$PROJECT_DIR$/lib/snappy-java-1.1.4.jar!/org/xerial/snappy/Snappy.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+        <state relative-caret-position="100">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/SnappyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/compress/CompressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/beini/test/javase/io/CuttingMerge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="26" column="67" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
