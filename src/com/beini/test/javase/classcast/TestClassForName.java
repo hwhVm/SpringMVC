@@ -8,10 +8,11 @@ public class TestClassForName {
 
     public static void main(String[] args) {
 
-        ChildSupTest demo1 = (ChildSupTest) createInstance(ChildSupTest.class);
-        ChildSupTest demo2 = (ChildSupTest) createInstance(ChildSupTest.class);
+//        ChildSupTest demo1 = (ChildSupTest) createInstance(ChildSupTest.class);
+//        ChildSupTest demo2 = (ChildSupTest) createInstance(ChildSupTest.class);
+//        System.out.println("  demo2==demo1" + (demo1 == demo2));
 
-        System.out.println("  demo2==demo1" + (demo1 == demo2));
+        String str;
 
     }
 
