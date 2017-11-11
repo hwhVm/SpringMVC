@@ -1,4 +1,4 @@
-package com.beini.test.javase.io.okioPackage;
+package com.beini.test.javase.strem.okioPackage;
 
 /**
  * Created by beini on 2017/11/9.

@@ -1,6 +1,4 @@
-package com.beini.test.javase.io;
-
-import com.beini.utils.BLog;
+package com.beini.test.javase.strem;
 
 import java.io.*;
 import java.util.ArrayList;

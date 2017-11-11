@@ -1,6 +1,5 @@
-package com.beini.test.javase.io.okioPackage;
+package com.beini.test.javase.strem.okioPackage;
 
-import com.beini.test.javase.io.FileUtils;
 import okio.*;
 
 import java.io.*;
@@ -24,7 +23,7 @@ public class OkioTest {
      *
      * @param args
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 //        long start1 = System.currentTimeMillis();
 //        copyFile();
 //        long end1 = System.currentTimeMillis();
@@ -38,8 +37,27 @@ public class OkioTest {
 //            e.printStackTrace();
 //        }
 
-    }
+        File fileRead = new File("C:\\Users\\Administrator\\Desktop\\aa.txt");
+        File fileWrite = new File("C:\\Users\\Administrator\\Desktop\\bb.txt");
+        System.out.println("          fileRead.length()=" + fileRead.length());//3181
 
+        BufferedSink sink = Okio.buffer(Okio.sink(fileWrite));
+        Buffer buffer = sink.buffer();
+
+//        long total = 0;
+        long len;
+        int bufferSize = 200 * 1024; //200kb
+        BufferedSource source = Okio.buffer(Okio.source(fileRead));
+        while ((len = source.read(buffer, bufferSize)) != -1) {
+            sink.emit();
+//            total += len;
+        }
+        source.close();
+        sink.close();
+        System.out.println("        fileWrite.length()=" + fileWrite.length());
+
+
+    }
 
     /**
      * ForwardingSink

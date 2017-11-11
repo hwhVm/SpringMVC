@@ -1,11 +1,9 @@
-package com.beini.test.javase.io.okioPackage;
+package com.beini.test.javase.strem.okioPackage;
 
 import okio.*;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * Created by beini on 2017/11/9.
