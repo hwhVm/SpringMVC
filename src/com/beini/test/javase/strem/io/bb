@@ -1,0 +1,22 @@
+           ddddddddddddddddd     randomAccessStr = new RandomAccessFile("src/com/beini/test/javase/strem/io/app.iml", "rw");
+            randomAccessDest = new RandomAccessFile(destPath, "rw");
+
+            FileChannel fileChannelStr = randomAccessStr.getChannel();
+            FileChannel fileChannel1Dest = randomAc
+                 randomAccessStr = new RandomAccessFile("src/com/beini/test/javase/strem/io/app.iml", "rw");
+                        randomAccessDest = new RandomAccessFile(destPath, "rw");
+
+                        FileChannel fileChannelStr = randomAccessStr.getChannel();
+                        FileChannel fileChannel1Dest = randomAccessDest.getChannel();     randomAccessStr = new RandomAccessFile("src/com/beini/test/javase/strem/io/app.iml", "rw");
+                                                                                                 randomAccessDest = new RandomAccessFile(destPath, "rw");
+
+                                                                                                 FileChannel fileChannelStr = randomAccessStr.getChannel();
+                                                                                                 FileChannel fileChannel1Dest = randomAccessDest.getChannel();     randomAccessStr = new RandomAccessFile("src/com/beini/test/javase/strem/io/app.iml", "rw");
+                                                                                                                                                                          randomAccessDest = new RandomAccessFile(destPath, "rw");
+
+                                                                                                                                                                          FileChannel fileChannelStr = randomAccessStr.getChannel();
+                                                                                                                                                                          FileChannel fileChannel1Dest = randomAccessDest.getChannel();     randomAccessStr = new RandomAccessFile("src/com/beini/test/javase/strem/io/app.iml", "rw");
+                                                                                                                                                                                                                                                   randomAccessDest = new RandomAccessFile(destPath, "rw");
+
+                                                                                                                                                                                                                                                   FileChannel fileChannelStr = randomAccessStr.getChannel();
+                                                                                                                                                                                                                                                   FileChannel fileChannel1Dest = randomAccessDest.getChannel();cessDest.getChannel();

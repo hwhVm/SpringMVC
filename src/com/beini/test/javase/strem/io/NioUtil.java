@@ -30,7 +30,6 @@ public class NioUtil {
             ByteBuffer byteBuffer = ByteBuffer.allocate((int) randomAccessFile.length());//2g
 
             int byteRead = fileChannel.read(byteBuffer);
-
             while (byteRead != -1) {
                 byteBuffer.flip();//将Buffer从写模式切换到读模式
                 while (byteBuffer.hasRemaining()) {
@@ -45,6 +44,39 @@ public class NioUtil {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 截取一个文件的一部分
+     */
+    public static void cutOutFile(String strPath, String destPath) {
+        RandomAccessFile randomAccessStr;
+        RandomAccessFile randomAccessDest;
+//        3075
+        int startSize = 0;
+        int endSize = 0;
+        try {
+            randomAccessStr = new RandomAccessFile(strPath, "rw");
+            randomAccessDest = new RandomAccessFile(destPath, "rw");
+            FileChannel fileChannelStr = randomAccessStr.getChannel();
+            FileChannel fileChannel1Dest = randomAccessDest.getChannel();
+//            randomAccessStr.seek(startSize);
+            byte[] bufferByte = new byte[1024];
+            ByteBuffer byteBuffer = ByteBuffer.wrap(bufferByte);
+            int byteRead = fileChannelStr.read(byteBuffer);
+            while (byteRead != -1) {
+                byteBuffer.flip();
+                fileChannel1Dest.write(byteBuffer);
+                byteBuffer.compact();
+                byteRead = fileChannelStr.read(byteBuffer);
+            }
+
+            randomAccessStr.close();
+            randomAccessDest.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void copyFile(String strPath, String destPath) {
         RandomAccessFile randomAccessStr;
@@ -79,4 +111,25 @@ public class NioUtil {
             e.printStackTrace();
         }
     }
+
+    public static void appendFile(String str, String dest) {
+        RandomAccessFile randomAccessStr;
+        RandomAccessFile randomAccessDest;
+        try {
+            randomAccessStr = new RandomAccessFile(str, "rw");
+            randomAccessDest = new RandomAccessFile(dest, "rw");
+            long strLength = randomAccessStr.length();
+            long destLength = randomAccessDest.length();
+            randomAccessStr.setLength(strLength + destLength);
+            FileChannel fileChannelStr = randomAccessStr.getChannel();
+            FileChannel fileChannel1Dest = randomAccessDest.getChannel();
+            fileChannelStr.transferFrom(fileChannel1Dest, strLength, fileChannel1Dest.size());
+            randomAccessStr.close();
+            randomAccessDest.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
