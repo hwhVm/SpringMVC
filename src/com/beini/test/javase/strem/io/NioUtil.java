@@ -48,28 +48,21 @@ public class NioUtil {
     /**
      * 截取一个文件的一部分
      */
-    public static void cutOutFile(String strPath, String destPath) {
+    /**
+     * @param strPath
+     * @param destPath
+     */
+    public static void cutOutFile(String strPath, String destPath, int startSize, int len) {
         RandomAccessFile randomAccessStr;
         RandomAccessFile randomAccessDest;
-//        3075
-        int startSize = 0;
-        int endSize = 0;
         try {
             randomAccessStr = new RandomAccessFile(strPath, "rw");
             randomAccessDest = new RandomAccessFile(destPath, "rw");
-            FileChannel fileChannelStr = randomAccessStr.getChannel();
-            FileChannel fileChannel1Dest = randomAccessDest.getChannel();
-//            randomAccessStr.seek(startSize);
-            byte[] bufferByte = new byte[1024];
-            ByteBuffer byteBuffer = ByteBuffer.wrap(bufferByte);
-            int byteRead = fileChannelStr.read(byteBuffer);
-            while (byteRead != -1) {
-                byteBuffer.flip();
-                fileChannel1Dest.write(byteBuffer);
-                byteBuffer.compact();
-                byteRead = fileChannelStr.read(byteBuffer);
-            }
-
+            randomAccessStr.seek(startSize);
+            byte[] buffer = new byte[len];
+            System.out.println("  buffer.length)="+buffer.length);
+            randomAccessStr.read(buffer);
+            randomAccessDest.write(buffer, 0, buffer.length);
             randomAccessStr.close();
             randomAccessDest.close();
         } catch (IOException e) {

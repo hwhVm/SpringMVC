@@ -77,8 +77,13 @@ public class IoUtil {
         }
     }
 
-    @Deprecated
-    public static void appendFile(String strPath, String destPath) {
+    /**
+     * @param strPath
+     * @param destPath
+     * @param startSize
+     * @param len
+     */
+    public static void cutOutFile(String strPath, String destPath, int startSize, int len) {
         InputStream inputStream;
         OutputStream outputStream;
         try {
@@ -88,16 +93,14 @@ public class IoUtil {
             outputStream = new BufferedOutputStream(new FileOutputStream(fileDest));
             inputStream = new BufferedInputStream(new FileInputStream(fileStr));
             byte[] bufferByte = new byte[(int) fileStr.length()];//文件不能超过2g
-            int nextBytes = inputStream.read(bufferByte);
-
-            while (nextBytes != -1) {
-                outputStream.write(bufferByte, 0, nextBytes);
-                nextBytes = inputStream.read(bufferByte);
-            }
+            inputStream.read(bufferByte, startSize, len);
+            outputStream.write(bufferByte, 0, len);
             inputStream.close();
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }

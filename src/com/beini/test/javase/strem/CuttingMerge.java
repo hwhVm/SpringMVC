@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CuttingMerge {
 
-    private static double bufferSize;
+    private static double bufferSize=1024;
 
     public static void main(String[] args) throws IOException {
         String filePath = "D:/demo/aa.zip";
