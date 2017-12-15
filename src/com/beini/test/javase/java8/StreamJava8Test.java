@@ -1,12 +1,12 @@
 package com.beini.test.javase.java8;
 
 
-import com.beini.test.javase.bean.User;
 import com.beini.utils.BLog;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+import java.time.Clock;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -15,18 +15,22 @@ import java.util.stream.Collectors;
  */
 public class StreamJava8Test {
 
-    public static void main(String[] args) throws InterruptedException {
-//        List<User> usersList = new ArrayList<>();
-//        usersList.add(null);
-//        User user = new User("beini",33);
-//        usersList.add(user);
-//        User user1 = new User("beini",11);
-//        usersList.add(user1);
-//        usersList.stream().filter(Objects::nonNull).forEach(user2 -> System.out.println("    " + user2.getName()));
-//
-//        BLog.d("     ------>StreamJava8Test");
-        collectTest();
+    public static void main(String[] args) throws Exception {
+        List<Integer> list = Arrays.asList(1, 2, 22, 33, 4, 6, 55);
+        long l = list.stream().filter(num -> num > 22).count();
+        BLog.d("          l=" + l);
+//        Stream<Integer> integerStream = Stream.of(1, 2, 3, 5);
+//        int i = integerStream.mapToInt(num -> num * 2).sum();
+
     }
+
+    public void TestParameter() throws NoSuchMethodException {
+        Method method = StreamJava8Test.class.getMethod("main", String[].class);
+        for (final Parameter parameter : method.getParameters()) {
+            System.out.println("Parameter: " + parameter.getName());
+        }
+    }
+
     /**
      * collect() ：返回一个新的集合
      */
@@ -37,18 +41,32 @@ public class StreamJava8Test {
         list.add(3);
         list.add(4);
         list.add(5);
-
         List _list = list.stream().filter((param) -> param % 2 == 0).collect(Collectors.toList());
         _list.forEach(System.out::println);
 
-
     }
+
+    public void testDate() {
+        final Clock clock = Clock.systemUTC();
+        System.out.println(clock.instant());
+        System.out.println(clock.millis());
+    }
+
+    public void testOoptional() {
+        Optional<String> fullName = Optional.ofNullable("22222");
+//        System.out.println("Full Name is set? " + fullName.isPresent());
+//        System.out.println("Full Name: " + fullName.orElseGet(() -> "[none]"));
+//        System.out.println(fullName.map(s -> "Hey " + s + "!").orElse("Hey Stranger!"));
+        BLog.d(fullName.orElse("111111111"));
+    }
+
     /**
      * 串行和并行的流,
      * 通过 stream.parallel() 返回并行的流。
      * 相比较串行的流，并行的流可以很大程度上提高程序的执行效率。
      * 通过 stream.sequential() 返回串行的流
      */
+
     public static void testStream() {
         List<Integer> list = new ArrayList();
         for (int i = 0; i < 100000; i++) {
@@ -79,7 +97,6 @@ public class StreamJava8Test {
         System.out.println(list.stream().min((param1, param2) -> param1 > param2 ? 1 : -1).get());
         System.out.println(list.stream().max((param1, param2) -> param1 > param2 ? 1 : -1).get());
     }
-
 
 
     /**

@@ -28,6 +28,7 @@ public class UserController  {
 
     @Autowired
     private UserService userService;
+
     /**
      * 同步操作
      */
