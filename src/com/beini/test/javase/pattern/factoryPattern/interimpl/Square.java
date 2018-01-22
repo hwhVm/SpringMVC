@@ -1,6 +1,6 @@
-package com.beini.test.javase.pattern.factory.interimpl;
+package com.beini.test.javase.pattern.factoryPattern.interimpl;
 
-import com.beini.test.javase.pattern.factory.inter.Shape;
+import com.beini.test.javase.pattern.factoryPattern.inter.Shape;
 
 /**
  * Created by beini on 2017/12/15.

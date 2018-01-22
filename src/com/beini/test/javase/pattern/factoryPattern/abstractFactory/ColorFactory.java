@@ -1,7 +1,7 @@
-package com.beini.test.javase.pattern.factory;
+package com.beini.test.javase.pattern.factoryPattern.abstractFactory;
 
-import com.beini.test.javase.pattern.factory.inter.Color;
-import com.beini.test.javase.pattern.factory.inter.Shape;
+import com.beini.test.javase.pattern.factoryPattern.inter.Color;
+import com.beini.test.javase.pattern.factoryPattern.inter.Shape;
 
 /**
  * Created by beini on 2017/12/15.
@@ -9,7 +9,7 @@ import com.beini.test.javase.pattern.factory.inter.Shape;
 public class ColorFactory extends AbstractFactory {
 
     @Override
-    Color getColor(String className) {
+    public Color getColor(String className) {
         try {
             Class<?> c = Class.forName(className);
             return (Color) c.newInstance();
@@ -20,7 +20,7 @@ public class ColorFactory extends AbstractFactory {
     }
 
     @Override
-    Shape getShape(String shape) {
+    public Shape getShape(String shape) {
         return null;
     }
 }
