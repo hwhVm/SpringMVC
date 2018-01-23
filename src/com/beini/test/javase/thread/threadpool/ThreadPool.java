@@ -1,7 +1,8 @@
-package com.beini.test.javase.thread;
+package com.beini.test.javase.thread.threadpool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.beini.test.javase.thread.MainThread;
+
+import java.util.concurrent.*;
 
 /**
  * Created by beini on 2017/8/16.
@@ -15,6 +16,9 @@ public class ThreadPool {
 
     public static void main(String[] args) throws InterruptedException {
         MainThread mainThread = new MainThread();
+
+        LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 6, 1, TimeUnit.DAYS, linkedBlockingQueue);
 
 //        fixThradPool.execute(() -> {
 //            try {

@@ -6,6 +6,7 @@ import com.beini.test.javase.pattern.factoryPattern.abstractFactory.ShapeFactory
 import com.beini.test.javase.pattern.factoryPattern.inter.Shape;
 import com.beini.test.javase.pattern.factoryPattern.interimpl.Rectangle;
 import com.beini.test.javase.pattern.factoryPattern.interimpl.Square;
+import com.beini.test.javase.pattern.factoryPattern.staticFactory.ShapeStaticFactory;
 
 /**
  * Created by beini on 2017/12/15.
@@ -27,9 +28,14 @@ public class Test {
 //        Shape square = shapeFactory.getShape(Square.class.getName());
 //        square.draw();
         //抽象工厂
-        AbstractFactory shapeFactory = FactoryProduce.getFactory("Shape");
-        Shape shape = shapeFactory.getShape(Square.class.getName());
-        shape.draw();
+//        AbstractFactory shapeFactory = FactoryProduce.getFactory("Shape");
+//        Shape shape = shapeFactory.getShape(Square.class.getName());
+//        shape.draw();
+        //静态工厂
+        Shape rectangle = ShapeStaticFactory.getRectangle();
+        rectangle.draw();
+        Shape square = ShapeStaticFactory.getSquare();
+        square.draw();
 
     }
 
