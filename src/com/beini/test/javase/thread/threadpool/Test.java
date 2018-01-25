@@ -24,6 +24,9 @@ public class Test {
     public static void main(String args[]) throws ExecutionException, InterruptedException {
 //        Test test = new Test();
 //        test.tread.start();
+    }
+
+    public void test() throws InterruptedException, ExecutionException {
         ExecutorService executor = Executors.newFixedThreadPool(10);        //创建含10.条线程的线程池
         CompletionService completionService = new ExecutorCompletionService(executor);
         for (int i = 1; i <= 10; i++) {
@@ -38,7 +41,6 @@ public class Test {
         System.out.println(completionService.take().get());   //获取执行结果
 
     }
-
 
     public static void callableSubmit() {
         //阻塞线程

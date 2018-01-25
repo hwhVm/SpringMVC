@@ -26,12 +26,16 @@ public class QuequeTest implements Runnable {
     }
 
     public static void test1() {
-        //起因  jdk.1.8
+        //线程池解析
+        //本文基于 jdk.1.8
+        //线程池核心的知识点：队列+工厂模式+线程相关的问题
+        //工厂模式：普通工厂+抽象工厂
+        //起因
         /**
          * 1、线程的创建和销毁都需要时间，当有大量的线程创建和销毁时，那么这些时间的消耗则比较明显，将导致性能上的缺失
          * 2、大量的线程创建、执行和销毁是非常耗cpu和内存的，还可能造成OOM
          * 3、大量的线程的创建和销毁很容易导致GC频繁的执行，从而发生内存抖动现象，而发生了内存抖动，对于移动端来说，最大的影响就是造成界面卡顿
-         *  所以我们采用线程池对线程进行复用，減少线程的创建，就能解决上述的问题了,而且包括了定时执行、定期执行、线程中断等功能。
+         *  所以我们采用线程池对线程进行复用，減少线程的创建，就能解决上述的问题了,而且包括了定时执行、定期执行、线程中断等方法。
          */
         /**
          *
@@ -44,16 +48,35 @@ public class QuequeTest implements Runnable {
          */
         // 1 初始化
         /**
-         * 阻塞队列：用于多线程共享数据
-         * 这个队列用于持有操作线程。
+         * BlockingQueue
+         * 阻塞队列：线程安全，用于多线程共享数据;
+         * 阻塞条件：
+         *  1 获取队列元素为空时，会阻塞，等待队列元素为非空。
+         *  2 添加队列元素，队列已满时，会阻塞，等待队列元素被消费。
+         * 具体实现：
+         * 1. ArrayBlockingQueue:有边界的阻塞队列，必须指定大小，指定后不能改变,内部实现是一个数组，FIFO(先进先出)的方式存储数据，最新插入的对象是尾部，最新移出的对象是头部
+         * 2. DelayQueue DelayQueue：阻塞的是其内部元素必须实现DelayQueue中的Delayed接口
+         * 3. LinkedBlockingQueue:链表结构的阻塞队列,指定了大小，则最大值为所指定的大小，不指定大小则为Integer.MAX_VALUE 对象是以FIFO(先进先出)顺序排序的
+         * 4. PriorityBlockingQueue:基于优先级的阻塞队列
+         * 5. SynchronousQueue:一种无缓冲的等待队列
+         * 线程池用到队列的一些方法：
+         * workQueue.isEmpty():返回是否workQueue.size()==0
+         * q.drainTo(taskList):一次性从BlockingQueue获取所有可用的数据对象（还可以指定获取数据的个数）,通过该方法，可以提升获取数据效率；不需要多次分批加锁或释放锁。
+         * q.toArray():返回包含所有队列元素的对象数组
+         * q.toArray(new Runnable[0]):和q.toArray()差不多，只不过指定了具体的类型
+         * workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS):从BlockingQueue取出一个队首的对象，如果在指定时间内,队列一旦有数据可取，则立即返回队列中的数据。否则知道时间超时还没有数据可取，返回失败。
+         * workQueue.take():取走BlockingQueue里排在首位的对象,若BlockingQueue为空,阻断进入等待状态直到BlockingQueue有新的数据被加入;
+         * workQueue.offer(command):添加队列元素
+         * q.remove(r):移除队列的指定元素
+         *
+         * 具体一些原理，使用方法，初始化条件等就不谈了。
          */
         BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
-
         //ThreadPoolExecutor 线程池
         /**
          * 父类：AbstractExecutorService，AbstractExecutorService实现了ExecutorService接口,而ExecutorService继承Executor接口
          * Executor：接口里定义了一个接受Runnable的方法，
-         * ExecutorService：提供了一些异步任务的操作(控制线程的最大并发数、线程的定时任务、单线程的顺序执行等)，并返回一些异步操作的结果{@code Future}；
+         * ExecutorService：提供了一些生命周期的管理方法(控制线程的最大并发数、线程的定时任务、单线程的顺序执行等)，并返回一些操作的结果{@code Future}；
          * AbstractExecutorService:ExecutorService的具体实现类
          *
          * 一些全局变量：
@@ -81,9 +104,12 @@ public class QuequeTest implements Runnable {
          *
          *   CAS原则:指的是现代 CPU 广泛支持的一种对内存中的共享数据进行操作的一种特殊指令。这个指令会对内存中的共享数据做原子的读写操作。
          *
-         *  可重入锁：
+         *  可重入锁：是一种递归无阻塞的同步机制
          *  private final ReentrantLock mainLock = new ReentrantLock();
          *
+         *   private final Condition termination = mainLock.newCondition();
+         *
+         *  private volatile ThreadFactory threadFactory:线程创建的工厂，就是executor的时候通过Worker初始化对象创建线程
          *
          */
 
@@ -97,6 +123,7 @@ public class QuequeTest implements Runnable {
          * 可能抛出的异常：以上的参数出现类型不匹配就,corePoolSize>maximumPoolSize等：IllegalArgumentException，workQueue为null等:NullPointerException
          */
         ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 6, 1, TimeUnit.DAYS, queue);
+        Executors.unconfigurableExecutorService(executor);
         // 参数赋值
         /**
          *@param threadFactory 默认的线程工厂
