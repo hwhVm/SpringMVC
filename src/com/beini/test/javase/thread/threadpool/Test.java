@@ -31,11 +31,9 @@ public class Test {
         CompletionService completionService = new ExecutorCompletionService(executor);
         for (int i = 1; i <= 10; i++) {
             final int result = i;
-            completionService.submit(new Callable() {
-                public Object call() throws Exception {
-                    Thread.sleep(new Random().nextInt(5000));   //让当前线程随机休眠一段时间
-                    return result;
-                }
+            completionService.submit(() -> {
+                Thread.sleep(new Random().nextInt(5000));   //让当前线程随机休眠一段时间
+                return result;
             });
         }
         System.out.println(completionService.take().get());   //获取执行结果
