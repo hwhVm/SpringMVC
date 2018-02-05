@@ -1,4 +1,4 @@
-package com.beini.test.javase.static_factory;
+package com.beini.test.javase.pattern.builderPattern;
 
 /**
  * Created by beini on 2017/8/14.

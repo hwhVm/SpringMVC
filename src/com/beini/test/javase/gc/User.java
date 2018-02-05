@@ -1,4 +1,4 @@
-package com.beini.test.javase.bean;
+package com.beini.test.javase.gc;
 
 /**
  * Created by beini on 2017/4/18.

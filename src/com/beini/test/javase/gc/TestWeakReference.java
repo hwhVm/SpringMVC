@@ -1,7 +1,5 @@
 package com.beini.test.javase.gc;
 
-import com.beini.test.javase.bean.User;
-
 import java.lang.ref.WeakReference;
 
 /**
